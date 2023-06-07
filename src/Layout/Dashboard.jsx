@@ -1,16 +1,16 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { FaBeer, FaBookOpen, FaHome, FaUser } from "react-icons/fa";
+import Navbar from "../pages/Shared/Navbar/Navbar";
 
 const Dashboard = () => {
   const isAdmin = false;
-  const isConstructor = true;
+  const isConstructor = false;
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center">
         {/* Page content here */}
-        <Outlet></Outlet>
         <label
           htmlFor="my-drawer-2"
           className="btn btn-primary drawer-button lg:hidden"
@@ -32,13 +32,11 @@ const Dashboard = () => {
               </li>
               <li>
                 <Link to="/dashboard/manageClasses">
-                  {" "}
                   <FaBookOpen /> Manage Classes
                 </Link>
               </li>
               <li>
                 <Link to="/dashboard/manageUsers">
-                  {" "}
                   <FaUser /> Manage Users
                 </Link>
               </li>
@@ -59,18 +57,18 @@ const Dashboard = () => {
           ) : (
             <>
               <li>
-                <Link to="/dashboard/adminHome">
-                  <FaHome></FaHome> Admin Home
+                <Link to="/dashboard/enrolledClass">
+                  <FaBookOpen /> Enrolled Class
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard/manageClasses">
-                  <FaBookOpen /> Manage Classes
+                <Link to="/dashboard/selectedClass">
+                  <FaUser /> Selected Class
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard/manageUsers">
-                  <FaUser /> Manage Users
+                <Link to="/">
+                  <FaHome /> Back to Home
                 </Link>
               </li>
             </>
