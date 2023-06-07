@@ -1,5 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProviders";
 
 const Navbar = () => {
   const navOptions = (
@@ -8,18 +9,27 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/menu">Instructors</Link>
+        <Link to="/instructors">Instructors</Link>
       </li>
       <li>
-        <Link to="/order"> Classes</Link>
-      </li>
-      <li>
-        <Link to="/order"> Login</Link>
+        <Link to="/classes"> Classes</Link>
       </li>
 
       
     </>
   );
+
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+
   return (
     <div className=" container mx-auto">
       <>
@@ -54,9 +64,32 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navOptions}</ul>
           </div>
-          <div className="navbar-end">
-            <a className="btn">Profile</a>
-          </div>
+          <div className=" flex items-center flex-row-reverse gap-4">
+              <div onClick={handleLogOut}>
+                {user && <NavLink>logOut</NavLink>}
+              </div>
+              <div>
+                {user ? (
+                  <>
+                    <img
+                      id="app-title"
+                      className=" rounded-full w-12 h-12 border-2 p-1"
+                      src={user.photoURL}
+                      alt=""
+                    />
+                    {/* <ReactTooltip
+                      anchorId="app-title"
+                      place="bottom"
+                      content={user?.displayName}
+                    /> */}
+                  </>
+                ) : (
+                  <li className="">
+                    <NavLink to="/login">LogIn</NavLink>
+                  </li>
+                )}
+              </div>
+            </div>
         </div>
       </>
     </div>
