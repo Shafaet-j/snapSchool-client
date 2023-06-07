@@ -14,8 +14,6 @@ const Navbar = () => {
       <li>
         <Link to="/classes"> Classes</Link>
       </li>
-
-      
     </>
   );
 
@@ -33,7 +31,7 @@ const Navbar = () => {
   return (
     <div className=" container mx-auto">
       <>
-        <div className="navbar fixed z-10  max-w-screen-xl">
+        <div className="navbar  max-w-screen-xl">
           <div className="navbar-start">
             <div className="dropdown">
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -64,7 +62,7 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navOptions}</ul>
           </div>
-          <div className=" flex items-center flex-row-reverse gap-4">
+          <ul className=" flex items-center flex-row-reverse gap-4">
               <div onClick={handleLogOut}>
                 {user && <NavLink>logOut</NavLink>}
               </div>
@@ -89,7 +87,7 @@ const Navbar = () => {
                   </li>
                 )}
               </div>
-            </div>
+            </ul>
         </div>
       </>
     </div>
