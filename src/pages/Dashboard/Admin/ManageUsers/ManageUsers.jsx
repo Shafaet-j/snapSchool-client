@@ -1,14 +1,44 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import { data } from "autoprefixer";
+import React, { useState } from "react";
 import { FaTrash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const ManageUsers = () => {
-  const { data: users = [], refetch } = useQuery(["users"], async () => {
+  const {
+    data: users = [],
+    refetch,
+    isLoading,
+  } = useQuery(["users"], async () => {
     const res = await fetch("http://localhost:5000/users");
     return res.json();
   });
 
-  const handleDelete = (user) => {};
+  const [disabled, setDisabled] = useState([]);
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/users/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
   const handleMakeAdmin = (user) => {
     fetch(`http://localhost:5000/users/admin/${user._id}`, {
       method: "PATCH",
@@ -17,6 +47,7 @@ const ManageUsers = () => {
       .then((data) => {
         if (data.modifiedCount) {
           refetch();
+          setDisabled([...disabled, user._id]);
           alert("made admin");
         }
       });
@@ -29,10 +60,15 @@ const ManageUsers = () => {
       .then((data) => {
         if (data.modifiedCount) {
           refetch();
+          setDisabled([...disabled, user._id]);
           alert("made admin");
         }
       });
   };
+
+  if (isLoading) {
+    return <h2>loading...</h2>;
+  }
 
   return (
     <div className="container mx-auto">
@@ -57,23 +93,26 @@ const ManageUsers = () => {
                 <td>{user.email}</td>
                 <td className=" space-y-3">
                   <button
+                    disabled={disabled.includes(user._id)}
                     onClick={() => handleMakeAdmin(user)}
                     className=" text-left btn btn-neutral block"
                   >
-                    Make Admin
+                    Admin
                   </button>
                   <button
+                    disabled={disabled.includes(user._id)}
                     onClick={() => handleMakeInstructor(user)}
                     className=" text-left btn btn-neutral block"
                   >
-                    Make Instructor
+                    Instructor
                   </button>
                 </td>
                 <td>
-                  <button onClick={() => handleDelete(user)}>
+                  <button onClick={() => handleDelete(user._id)}>
                     <FaTrash size={25} />
                   </button>
                 </td>
+                <td>{user.role}</td>
               </tr>
             ))}
           </tbody>
