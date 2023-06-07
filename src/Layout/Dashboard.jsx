@@ -4,7 +4,7 @@ import { FaBeer, FaBookOpen, FaHome, FaUser } from "react-icons/fa";
 import Navbar from "../pages/Shared/Navbar/Navbar";
 
 const Dashboard = () => {
-  const isAdmin = false;
+  const isAdmin = true;
   const isConstructor = false;
   return (
     <div className="drawer lg:drawer-open">

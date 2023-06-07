@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const LogIn = () => {
   const {
@@ -17,9 +18,9 @@ const LogIn = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    
+
     signIn(data.email, data.password).then((result) => {
-        reset(data);
+      reset(data);
       const user = result.user;
       console.log(user);
       Swal.fire({
@@ -95,18 +96,16 @@ const LogIn = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <input
-                className="btn btn-primary"
-                type="submit"
-                value="Log In"
-              />
+              <input className="btn btn-primary" type="submit" value="Log In" />
             </div>
           </form>
           <p>
-            <small>
-              New to SnapSchool <Link to="/signup">SignUp</Link>
-            </small>
+            New to SnapSchool??
+            <span className=" text-success">
+              <Link to="/signup">SignUp</Link>
+            </span>
           </p>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>

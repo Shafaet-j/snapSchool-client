@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProviders";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const {
@@ -148,10 +149,9 @@ const SignUp = () => {
               </div>
             </form>
             <p>
-              <small>
-                Already have an account <Link to="/login">Login</Link>
-              </small>
+              Already have an account?? <span className=" text-success" ><Link to="/login">Login</Link></span>
             </p>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
