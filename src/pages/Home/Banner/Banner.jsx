@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 
 const Banner = () => {
   return (
-    <div className=" min-h-screen">
+    <div className=" mb-16">
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
         <SwiperSlide>
           <img className=" h-[80vh] w-full object-cover" src={bg1} alt="" />

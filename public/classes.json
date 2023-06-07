@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Landscape Photography",
+    "image": "https://i.ibb.co/ySyg4Cd/sunrise-1959230-1280.jpg",
+    "students": 150
+  },
+  {
+    "name": "Portrait Photography",
+    "image": "https://i.ibb.co/XF1hZPq/gecko-2299365-1280.jpg",
+    "students": 120
+  },
+  {
+    "name": "Street Photography",
+    "image": "https://i.ibb.co/McDS1vj/japan-2014616-1280.jpg",
+    "students": 90
+  },
+  {
+    "name": "Wildlife Photography",
+    "image": "https://i.ibb.co/fFrwKGG/cat-2988354-1280.jpg",
+    "students": 80
+  },
+  {
+    "name": "Product Photography",
+    "image": "https://i.ibb.co/842GDTT/camera-1721378-1280.jpg",
+    "students": 75
+  },
+  {
+    "name": "Night Photography",
+    "image": "https://i.ibb.co/VSSMPq9/sunset-5314319-1280.jpg",
+    "students": 70
+  }
+]
