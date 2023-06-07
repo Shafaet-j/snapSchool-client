@@ -2,32 +2,32 @@
     {
       "Name": "John Doe",
       "Email": "johndoe@example.com",
-      "Image": "path/to/john_doe_image.jpg"
+      "Image": "https://i.ibb.co/8bQrnyS/adult-1867699-1280.jpg"
     },
     {
       "Name": "Jane Smith",
       "Email": "janesmith@example.com",
-      "Image": "path/to/jane_smith_image.jpg"
+      "Image": "https://i.ibb.co/8bQrnyS/adult-1867699-1280.jpg"
     },
     {
       "Name": "Alex Johnson",
       "Email": "alexjohnson@example.com",
-      "Image": "path/to/alex_johnson_image.jpg"
+      "Image": "https://i.ibb.co/8bQrnyS/adult-1867699-1280.jpg"
     },
     {
       "Name": "Emily Davis",
       "Email": "emilydavis@example.com",
-      "Image": "path/to/emily_davis_image.jpg"
+      "Image": "https://i.ibb.co/tHkjML9/photographer-1867417-1280.jpg"
     },
     {
       "Name": "Michael Wilson",
       "Email": "michaelwilson@example.com",
-      "Image": "path/to/michael_wilson_image.jpg"
+      "Image": "https://i.ibb.co/tHkjML9/photographer-1867417-1280.jpg"
     },
     {
       "Name": "Sarah Brown",
       "Email": "sarahbrown@example.com",
-      "Image": "path/to/sarah_brown_image.jpg"
+      "Image": "https://i.ibb.co/tHkjML9/photographer-1867417-1280.jpg"
     }
   ]
   
