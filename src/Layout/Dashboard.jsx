@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import { FaBeer, FaBookOpen, FaHome, FaUser } from "react-icons/fa";
 
 const Dashboard = () => {
-  const isAdmin = true;
+  const isAdmin = false;
   const isConstructor = true;
   return (
     <div className="drawer lg:drawer-open">
@@ -22,18 +23,58 @@ const Dashboard = () => {
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
 
-          <li>
-            <Link to="/dashboard/adminHome">
-              {" "}
-               Admin Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/dashboard/manageClasses">Manage Classes</Link>
-          </li>
-          <li>
-            <Link to="/dashboard/manageUsers">Manage Users</Link>
-          </li>
+          {isAdmin ? (
+            <>
+              <li>
+                <Link to="/dashboard/adminHome">
+                  <FaHome></FaHome> Admin Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard/manageClasses">
+                  {" "}
+                  <FaBookOpen /> Manage Classes
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard/manageUsers">
+                  {" "}
+                  <FaUser /> Manage Users
+                </Link>
+              </li>
+            </>
+          ) : isConstructor ? (
+            <>
+              <li>
+                <Link to="/dashboard/addClass">
+                  <FaBookOpen /> Add Class
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard/myClass">
+                  <FaUser /> My Class
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link to="/dashboard/adminHome">
+                  <FaHome></FaHome> Admin Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard/manageClasses">
+                  <FaBookOpen /> Manage Classes
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard/manageUsers">
+                  <FaUser /> Manage Users
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </div>
