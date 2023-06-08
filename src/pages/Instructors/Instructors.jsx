@@ -4,7 +4,7 @@ import Instructor from "./Instructor";
 const Instructors = () => {
   const [instructors, setInstructors] = useState([]);
   useEffect(() => {
-    fetch("data.json")
+    fetch("http://localhost:5000/users/instructor")
       .then((res) => res.json())
       .then((data) => setInstructors(data));
   }, []);

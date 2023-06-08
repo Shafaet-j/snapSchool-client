@@ -11,13 +11,31 @@ const SingleClass = ({ data }) => {
       }`}
     >
       <figure>
-        <img className=" rounded-t-xl" src={data.image} alt="Shoes" />
+        <img className=" rounded-t-xl h-80 w-full object-cover" src={data.image} alt="Shoes" />
       </figure>
       <div className="grid grid-cols-2 text-left p-3 gap-5 justify-items-stretch items-center">
         <h2 className="card-title">{data.name}</h2>
-        <p className=" font-semibold text-base">
-          Available Seat: {data.available_seat}
-        </p>
+        <div className=" flex items-center justify-between">
+          <p className=" font-semibold text-base">
+            Available Seat: {data.available_seat}
+          </p>
+          <button className="btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="red"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              />
+            </svg>
+          </button>
+        </div>
         <p className=" font-semibold text-base">
           Email: {data.instructor_email}
         </p>

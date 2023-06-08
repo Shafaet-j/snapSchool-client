@@ -23,9 +23,9 @@ const Classes = () => {
 
   return (
     <section className=" container mx-auto my-16">
-      <h2 className=" text-5xl font-bold">All Photography Classes</h2>
+      <h2 className=" lg:text-5xl text-2xl font-bold">All Photography Classes</h2>
 
-      <div className=" grid lg:grid-cols-3 gap-5 my-10">
+      <div className=" grid lg:grid-cols-3 gap-5 my-10 mx-4">
         {classes.map((data) => (
           <SingleClass data={data}></SingleClass>
         ))}

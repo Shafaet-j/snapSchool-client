@@ -24,7 +24,11 @@ const SignUp = () => {
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          const saveUser = { name: data.name, email: data.email };
+          const saveUser = {
+            name: data.name,
+            email: data.email,
+            image: data.photoURL,
+          };
           fetch("http://localhost:5000/users", {
             method: "POST",
             headers: {
@@ -149,7 +153,10 @@ const SignUp = () => {
               </div>
             </form>
             <p>
-              Already have an account?? <span className=" text-success" ><Link to="/login">Login</Link></span>
+              Already have an account??{" "}
+              <span className=" text-success">
+                <Link to="/login">Login</Link>
+              </span>
             </p>
             <SocialLogin></SocialLogin>
           </div>
