@@ -46,7 +46,7 @@ const Footer = () => {
       </footer>
       </div>
       <div>
-        <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+        <p>Copyright © 2023 - All right reserved by SnapSchool</p>
       </div>
     </>
   );

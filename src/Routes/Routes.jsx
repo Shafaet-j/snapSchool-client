@@ -13,11 +13,13 @@ import MyClass from "../pages/Dashboard/Instructors/MyClass/MyClass";
 import EnrolledClass from "../pages/Dashboard/Students/EnrolledClass/EnrolledClass";
 import SelectedClass from "../pages/Dashboard/Students/SelectedClass/SelectedClass";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
