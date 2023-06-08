@@ -3,11 +3,13 @@ import { Link, Outlet } from "react-router-dom";
 import { FaBeer, FaBookOpen, FaHome, FaUser } from "react-icons/fa";
 import Navbar from "../pages/Shared/Navbar/Navbar";
 import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 const Dashboard = () => {
   // const isAdmin = false;
   const [isAdmin] = useAdmin();
-  const isConstructor = false;
+  const [isInstructor] = useInstructor()
+  console.log(isInstructor)
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -44,7 +46,7 @@ const Dashboard = () => {
                 </Link>
               </li>
             </>
-          ) : isConstructor ? (
+          ) : isInstructor ? (
             <>
               <li>
                 <Link to="/dashboard/addClass">
