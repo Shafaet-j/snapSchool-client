@@ -32,6 +32,7 @@ const ManageUsers = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
+            refetch()
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
@@ -47,8 +48,14 @@ const ManageUsers = () => {
       .then((data) => {
         if (data.modifiedCount) {
           refetch();
-          setDisabled([...disabled, user._id]);
-          alert("made admin");
+          setDisabled([...disabled,user._id]);
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: `${user.name} is now an admin`,
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
       });
   };
@@ -60,8 +67,14 @@ const ManageUsers = () => {
       .then((data) => {
         if (data.modifiedCount) {
           refetch();
-          setDisabled([...disabled, user._id]);
-          alert("made admin");
+          setDisabled([...disabled,user._id]);
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: `${user.name} is now an Instructor`,
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
       });
   };
