@@ -2,10 +2,12 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { FaBeer, FaBookOpen, FaHome, FaUser } from "react-icons/fa";
 import Navbar from "../pages/Shared/Navbar/Navbar";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
-  const isAdmin = false;
-  const isConstructor = true;
+  // const isAdmin = false;
+  const [isAdmin] = useAdmin();
+  const isConstructor = false;
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
