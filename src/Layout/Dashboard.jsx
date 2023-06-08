@@ -4,8 +4,8 @@ import { FaBeer, FaBookOpen, FaHome, FaUser } from "react-icons/fa";
 import Navbar from "../pages/Shared/Navbar/Navbar";
 
 const Dashboard = () => {
-  const isAdmin = true;
-  const isConstructor = false;
+  const isAdmin = false;
+  const isConstructor = true;
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

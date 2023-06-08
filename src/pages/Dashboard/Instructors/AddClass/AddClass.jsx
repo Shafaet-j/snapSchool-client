@@ -2,7 +2,12 @@ import React from 'react'
 
 const AddClass = () => {
   return (
-    <div>AddClass</div>
+    <section className=' container mx-auto'>
+      <h1>Add your class</h1>
+      <form>
+        
+      </form>
+    </section>
   )
 }
 
