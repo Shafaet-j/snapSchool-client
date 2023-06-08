@@ -1,9 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../../hooks/useAuth";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 const AddClass = () => {
+  const [axiosSecure] = useAxiosSecure();
   const { user } = useAuth();
 
   const {
@@ -42,6 +45,12 @@ const AddClass = () => {
             price: parseFloat(price),
             image: imgURL,
           };
+
+          axiosSecure.post("/class", classItem).then((data) => {
+            if (data.data.insertedId) {
+              Swal.fire("Your class is added");
+            }
+          });
         }
       });
 
