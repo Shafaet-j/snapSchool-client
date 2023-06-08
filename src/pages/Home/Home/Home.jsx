@@ -2,11 +2,16 @@ import React, { useContext } from "react";
 import Banner from "../Banner/Banner";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import { AuthContext } from "../../../providers/AuthProviders";
+import { PuffLoader } from "react-spinners";
 
 const Home = () => {
   const { loading } = useContext(AuthContext);
   if (loading) {
-    return <h4>Loading</h4>;
+    return (
+      <div className="  absolute top-[30%] right-[50%]">
+        <PuffLoader></PuffLoader>
+      </div>
+    );
   }
   return (
     <div>

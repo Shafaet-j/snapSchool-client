@@ -4,9 +4,10 @@ import React, { useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { PuffLoader } from "react-spinners";
 
 const ManageUsers = () => {
-  const [axiosSecure] = useAxiosSecure()
+  const [axiosSecure] = useAxiosSecure();
   const {
     data: users = [],
     refetch,
@@ -34,7 +35,7 @@ const ManageUsers = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            refetch()
+            refetch();
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
@@ -50,14 +51,14 @@ const ManageUsers = () => {
       .then((data) => {
         if (data.modifiedCount) {
           refetch();
-          setDisabled([...disabled,user._id]);
+          setDisabled([...disabled, user._id]);
           Swal.fire({
-            position: 'top',
-            icon: 'success',
+            position: "top",
+            icon: "success",
             title: `${user.name} is now an admin`,
             showConfirmButton: false,
-            timer: 1500
-          })
+            timer: 1500,
+          });
         }
       });
   };
@@ -69,20 +70,24 @@ const ManageUsers = () => {
       .then((data) => {
         if (data.modifiedCount) {
           refetch();
-          setDisabled([...disabled,user._id]);
+          setDisabled([...disabled, user._id]);
           Swal.fire({
-            position: 'top',
-            icon: 'success',
+            position: "top",
+            icon: "success",
             title: `${user.name} is now an Instructor`,
             showConfirmButton: false,
-            timer: 1500
-          })
+            timer: 1500,
+          });
         }
       });
   };
 
   if (isLoading) {
-    return <h2>loading...</h2>;
+    return (
+      <div className="  absolute top-[30%] right-[50%]">
+        <PuffLoader></PuffLoader>
+      </div>
+    );
   }
 
   return (
