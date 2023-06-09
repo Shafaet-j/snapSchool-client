@@ -1,7 +1,11 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import CheckoutForm from "../pages/Dashboard/Students/Payment/CheckoutForm";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
-const Modal = ({ modalHandler, isOpen,closeModal }) => {
+const Modal = ({ modalHandler, isOpen, closeModal }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -33,11 +37,17 @@ const Modal = ({ modalHandler, isOpen,closeModal }) => {
                   as="h3"
                   className="text-lg font-medium text-center leading-6 text-gray-900"
                 >
-                  Review Info Before Reserve
+                  Review Info Before Payment
                 </Dialog.Title>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">Price:</p>
                 </div>
+
+                {/* payment checkOut  */}
+                <Elements stripe={stripePromise}>
+                  <CheckoutForm></CheckoutForm>
+                </Elements>
+
                 <hr className="mt-8 " />
                 <div className="flex mt-2 justify-around">
                   <button
@@ -47,13 +57,13 @@ const Modal = ({ modalHandler, isOpen,closeModal }) => {
                   >
                     Cancel
                   </button>
-                  <button
+                  {/* <button
                     type="button"
                     className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
                     onClick={modalHandler}
                   >
                     Pay
-                  </button>
+                  </button> */}
                 </div>
               </Dialog.Panel>
             </Transition.Child>

@@ -60,7 +60,7 @@ const EnrolledClass = () => {
           </tbody>
         </table>
       </div>
-      <Modal closeModal={closeModal} isOpen={isOpen}></Modal>
+      <Modal  closeModal={closeModal} isOpen={isOpen}></Modal>
     </section>
   );
 };
