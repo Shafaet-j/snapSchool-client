@@ -13,14 +13,14 @@ import { FaQuoteLeft } from "react-icons/fa";
 const WhatOurStudentSay = () => {
   return (
     <section
-      className=" h-[60vh] my-10 flex items-center"
+      className=" h-[60vh] my-10 flex items-center w-full overflow-hidden"
       style={{
         backgroundImage: `url(${bg2})`,
       }}
     >
-      <div className=" mx-auto container flex justify-between items-center">
-        <div className=" w-1/2">
-          <h2 className=" text-5xl font-bold text-white mb-10">
+      <div className=" mx-auto container">
+        <div className="">
+          <h2 className="text-2xl lg:text-5xl font-bold text-white mb-10">
             What Our Students <br /> Say About Us
           </h2>
           <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
@@ -54,7 +54,7 @@ const WhatOurStudentSay = () => {
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className=" w-1/2">sdkfh</div>
+        {/* <div className=" w-1/2">sdkfh</div> */}
       </div>
     </section>
   );

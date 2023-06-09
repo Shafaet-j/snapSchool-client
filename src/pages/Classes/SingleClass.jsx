@@ -3,14 +3,30 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 
 const SingleClass = ({ data }) => {
-  
-
   const { user } = useAuth();
   const [enrollButtonText, setEnrollButtonText] = useState("Enroll");
   const handleEnrolled = (data) => {
     console.log(data);
-    const {image,available_seat,instructor_name,instructor_email,price,_id,name} = data
-    const enrollItem = {enroll:true,image,available_seat,instructor_email,instructor_name,price,_id,name};
+    const {
+      image,
+      available_seat,
+      instructor_name,
+      instructor_email,
+      price,
+      _id,
+      name,
+    } = data;
+    const enrollItem = {
+      enroll: true,
+      image,
+      available_seat,
+      instructor_email,
+      instructor_name,
+      price,
+      _id,
+      name,
+      email: user.email,
+    };
     if (user && user.email) {
       fetch("http://localhost:5000/enroll", {
         method: "POST",
@@ -21,7 +37,7 @@ const SingleClass = ({ data }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data)
+          console.log(data);
           if (data.insertedId) {
             setEnrollButtonText("Enrolled");
             Swal.fire({
@@ -91,9 +107,11 @@ const SingleClass = ({ data }) => {
           Email: {data.instructor_email}
         </p>
         <p className=" font-semibold text-base">Name: {data.instructor_name}</p>
-        <p className=" font-bold text-2xl">Price: ${data.price}</p>
+        <p className=" font-bold text-2xl">
+          Price: <span className=" text-primary">${data.price}</span>
+        </p>
         <button
-          disabled={enrollButtonText === "Enrolled"}
+          disabled={enrollButtonText === "Enrolled" || data.available_seat == 0}
           onClick={() => handleEnrolled(data)}
           className=" btn"
         >

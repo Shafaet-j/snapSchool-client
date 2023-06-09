@@ -37,7 +37,7 @@ const ManageUsers = () => {
             console.log(data);
             refetch();
             if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire("Deleted!", "Your User has been deleted.", "success");
             }
           });
       }

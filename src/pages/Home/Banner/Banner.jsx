@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "./Banner.css";
 import "swiper/css/pagination";
+import { Fade } from "react-awesome-reveal";
 
 const Banner = () => {
   return (
@@ -16,9 +17,12 @@ const Banner = () => {
           <div className="relative">
             <img className="h-[80vh] w-full object-cover" src={bg1} alt="" />
             <div className="absolute inset-0 overlay"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-7xl w-full">
-              Exploring the World in Frames
-            </div>
+            <Fade duration={3000}>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  w-full">
+                <h1 className="text-white font-bold text-7xl">Exploring the World in <span className=" text-primary">Frames</span> </h1>
+                <h3 className=" text-2xl font-semibold text-white mt-7">Explore Your Skills With Varieties of Courses</h3>
+              </div>
+            </Fade>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -35,7 +39,7 @@ const Banner = () => {
             <img className="h-[80vh] w-full object-cover" src={bg3} alt="" />
             <div className="absolute inset-0 overlay"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-7xl w-full font-bold">
-            Unlocking the Art of Photography
+              Unlocking the Art of Photography
             </div>
           </div>
         </SwiperSlide>

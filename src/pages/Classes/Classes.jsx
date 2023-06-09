@@ -23,7 +23,7 @@ const Classes = () => {
 
   return (
     <section className=" container mx-auto my-16">
-      <h2 className=" lg:text-5xl text-2xl font-bold">All Photography Classes</h2>
+      <h2 className=" lg:text-5xl text-2xl font-bold">All <span className=" text-primary">Photography</span> Classes</h2>
 
       <div className=" grid lg:grid-cols-3 gap-5 my-10 mx-4">
         {classes.map((data) => (

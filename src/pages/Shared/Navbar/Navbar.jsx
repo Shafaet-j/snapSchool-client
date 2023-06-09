@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProviders";
+import { Tooltip as ReactTooltip } from 'react-tooltip'
 
 const Navbar = () => {
   const navOptions = (
@@ -32,9 +33,9 @@ const Navbar = () => {
 
 
   return (
-    <div className=" container mx-auto">
+    <div className="  z-10 sticky top-0 bg-white">
       <>
-        <div className="navbar ">
+        <div className="navbar container mx-auto">
           <div className="navbar-start">
             <div className="dropdown">
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -60,7 +61,7 @@ const Navbar = () => {
                 {navOptions}
               </ul>
             </div>
-            <a className="btn btn-ghost normal-case text-xl">SnapSchool</a>
+            <a className=" text-3xl font-bold text-primary">SnapSchool</a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navOptions}</ul>
@@ -79,11 +80,11 @@ const Navbar = () => {
                       src={user.photoURL}
                       alt=""
                     />
-                    {/* <ReactTooltip
+                    <ReactTooltip
                       anchorId="app-title"
                       place="bottom"
                       content={user?.displayName}
-                    /> */}
+                    />
                   </>
                 ) : (
                   <li className="">

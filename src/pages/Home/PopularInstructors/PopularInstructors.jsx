@@ -11,7 +11,7 @@ const PopularInstructors = () => {
   }, []);
   return (
     <section className=" container mx-auto">
-      <h1 className=" lg:text-5xl font-bold mb-10">Popular Instructors</h1>
+      <h1 className=" lg:text-5xl font-bold mb-10">Our Popular <span className=" text-primary">Instructors</span> </h1>
       <div className=" grid grid-cols-1 lg:grid-cols-3 gap-7">
         {popularInstructors.map((popularInstructor) => (
           <InstructorCard
