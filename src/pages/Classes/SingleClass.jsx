@@ -1,7 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const SingleClass = ({ data }) => {
-  console.log(data);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const closeModal = () => {
+  //   setIsOpen(false)
+  // }
+
+  const { user } = useAuth();
+
+  const handleEnrolled = (data) => {
+    console.log(data);
+    if (user && user.email) {
+      fetch("http://localhost:5000/enroll", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Course enrolled.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    } else {
+      Swal.fire({
+        title: "Please login to enroll",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login now!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
+    }
+  };
+
   return (
     <div
       className={` ${
@@ -11,7 +57,11 @@ const SingleClass = ({ data }) => {
       }`}
     >
       <figure>
-        <img className=" rounded-t-xl h-80 w-full object-cover" src={data.image} alt="Shoes" />
+        <img
+          className=" rounded-t-xl h-80 w-full object-cover"
+          src={data.image}
+          alt="Shoes"
+        />
       </figure>
       <div className="grid grid-cols-2 text-left p-3 gap-5 justify-items-stretch items-center">
         <h2 className="card-title">{data.name}</h2>
@@ -41,8 +91,11 @@ const SingleClass = ({ data }) => {
         </p>
         <p className=" font-semibold text-base">Name: {data.instructor_name}</p>
         <p className=" font-bold text-2xl">Price: ${data.price}</p>
-        <button className=" btn">Enroll</button>
+        <button onClick={() => handleEnrolled(data)} className=" btn">
+          Enroll
+        </button>
       </div>
+      {/* <Modal closeModal={closeModal} isOpen={isOpen}></Modal> */}
     </div>
   );
 };

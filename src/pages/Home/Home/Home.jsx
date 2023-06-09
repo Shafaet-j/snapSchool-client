@@ -4,6 +4,7 @@ import PopularClasses from "../PopularClasses/PopularClasses";
 import { AuthContext } from "../../../providers/AuthProviders";
 import { PuffLoader } from "react-spinners";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
+import WhatOurStudentSay from "../WhatOurStudentSay/WhatOurStudentSay";
 
 const Home = () => {
   const { loading } = useContext(AuthContext);
@@ -19,6 +20,7 @@ const Home = () => {
       <Banner></Banner>
       <PopularClasses></PopularClasses>
       <PopularInstructors></PopularInstructors>
+      <WhatOurStudentSay></WhatOurStudentSay>
     </div>
   );
 };
