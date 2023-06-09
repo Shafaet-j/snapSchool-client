@@ -27,7 +27,7 @@ const Classes = () => {
 
       <div className=" grid lg:grid-cols-3 gap-5 my-10 mx-4">
         {classes.map((data) => (
-          <SingleClass data={data}></SingleClass>
+          <SingleClass key={data._id} data={data}></SingleClass>
         ))}
       </div>
     </section>

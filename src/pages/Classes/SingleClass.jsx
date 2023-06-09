@@ -3,26 +3,27 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 
 const SingleClass = ({ data }) => {
-  // const [isOpen, setIsOpen] = useState(false);
-  // const closeModal = () => {
-  //   setIsOpen(false)
-  // }
+  
 
   const { user } = useAuth();
-
+  const [enrollButtonText, setEnrollButtonText] = useState("Enroll");
   const handleEnrolled = (data) => {
     console.log(data);
+    const {image,available_seat,instructor_name,instructor_email,price,_id,name} = data
+    const enrollItem = {enroll:true,image,available_seat,instructor_email,instructor_name,price,_id,name};
     if (user && user.email) {
       fetch("http://localhost:5000/enroll", {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(enrollItem),
       })
         .then((res) => res.json())
         .then((data) => {
+          console.log(data)
           if (data.insertedId) {
+            setEnrollButtonText("Enrolled");
             Swal.fire({
               position: "top-end",
               icon: "success",
@@ -91,8 +92,12 @@ const SingleClass = ({ data }) => {
         </p>
         <p className=" font-semibold text-base">Name: {data.instructor_name}</p>
         <p className=" font-bold text-2xl">Price: ${data.price}</p>
-        <button onClick={() => handleEnrolled(data)} className=" btn">
-          Enroll
+        <button
+          disabled={enrollButtonText === "Enrolled"}
+          onClick={() => handleEnrolled(data)}
+          className=" btn"
+        >
+          {enrollButtonText}
         </button>
       </div>
       {/* <Modal closeModal={closeModal} isOpen={isOpen}></Modal> */}
