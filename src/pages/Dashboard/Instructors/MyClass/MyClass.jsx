@@ -26,7 +26,8 @@ const MyClass = () => {
               <th>#</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Role</th>
+              <th>Course Name</th>
+              <th>Price</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -36,10 +37,11 @@ const MyClass = () => {
                 <th>{index + 1}</th>
                 <td>{singleClass.instructor_name}</td>
                 <td>{singleClass.instructor_email}</td>
-
-                <td className=" space-y-3"></td>
-                <td></td>
-                <td></td>
+                <td>{singleClass.name}</td>
+                <td>$ {singleClass.price}</td>
+                <td>
+                  <button className=" btn">Update</button>
+                </td>
               </tr>
             ))}
           </tbody>

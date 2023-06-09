@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import { AuthContext } from "../../../providers/AuthProviders";
 import { PuffLoader } from "react-spinners";
+import PopularInstructors from "../PopularInstructors/PopularInstructors";
 
 const Home = () => {
   const { loading } = useContext(AuthContext);
@@ -17,6 +18,7 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <PopularClasses></PopularClasses>
+      <PopularInstructors></PopularInstructors>
     </div>
   );
 };

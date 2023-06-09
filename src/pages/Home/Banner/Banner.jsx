@@ -5,6 +5,7 @@ import bg3 from "../../../assets/bg3.jpg";
 import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "./Banner.css";
 import "swiper/css/pagination";
 
 const Banner = () => {
@@ -12,13 +13,31 @@ const Banner = () => {
     <div className=" mb-16">
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
         <SwiperSlide>
-          <img className=" h-[80vh] w-full object-cover" src={bg1} alt="" />
+          <div className="relative">
+            <img className="h-[80vh] w-full object-cover" src={bg1} alt="" />
+            <div className="absolute inset-0 overlay"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-7xl w-full">
+              Exploring the World in Frames
+            </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img className=" h-[80vh] w-full object-cover" src={bg2} alt="" />
+          <div className="relative">
+            <img className="h-[80vh] w-full object-cover" src={bg2} alt="" />
+            <div className="absolute inset-0 overlay"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-7xl w-full font-bold">
+              Capturing Moments, Creating Memories
+            </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img className=" h-[80vh] w-full object-cover" src={bg3} alt="" />
+          <div className="relative">
+            <img className="h-[80vh] w-full object-cover" src={bg3} alt="" />
+            <div className="absolute inset-0 overlay"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-7xl w-full font-bold">
+            Unlocking the Art of Photography
+            </div>
+          </div>
         </SwiperSlide>
       </Swiper>
     </div>
