@@ -12,10 +12,12 @@ const SelectedClass = () => {
     refetch,
     isLoading,
   } = useQuery(["payments"], async () => {
-    const res = await fetch(`http://localhost:5000/payments/${user.email}`);
+    const res = await fetch(
+      `https://snapschool-server-shafaet-j.vercel.app/payments/${user.email}`
+    );
     return res.json();
   });
-  
+
   return (
     <section>
       <h2 className=" lg:text-5xl font-bold mb-10">

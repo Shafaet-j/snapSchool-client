@@ -18,12 +18,13 @@ const EnrolledClass = () => {
     refetch,
     isLoading,
   } = useQuery(["enroll"], async () => {
-    const res = await fetch(`http://localhost:5000/enroll/${user.email}`);
+    const res = await fetch(
+      `https://snapschool-server-shafaet-j.vercel.app/enroll/${user.email}`
+    );
     return res.json();
   });
 
   const handleDelete = (email) => {
-    
     Swal.fire({
       title: "Are you sure?",
       icon: "warning",
@@ -33,12 +34,14 @@ const EnrolledClass = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/enroll/${email}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://snapschool-server-shafaet-j.vercel.app/enroll/${email}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
-            
             refetch();
             if (data.deletedCount) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");

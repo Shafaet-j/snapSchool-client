@@ -2,14 +2,41 @@ import React, { useEffect, useState } from "react";
 import Instructor from "./Instructor";
 import ins from "../../assets/instructor.jpg";
 import { FaArrowRight } from "react-icons/fa";
+import useAuth from "../../hooks/useAuth";
+import { PuffLoader } from "react-spinners";
+import { useQuery } from "@tanstack/react-query";
 
 const Instructors = () => {
-  const [instructors, setInstructors] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:5000/users/instructor")
-      .then((res) => res.json())
-      .then((data) => setInstructors(data));
-  }, []);
+
+  const {
+    data: instructors = [],
+    refetch,
+    isLoading,
+  } = useQuery(["instructor"], async () => {
+    const res = await fetch(
+      "https://snapschool-server-shafaet-j.vercel.app/users/instructor"
+    );
+    return res.json();
+  });
+
+
+  // const {loading} = useAuth()
+  // const [instructors, setInstructors] = useState([]);
+  // useEffect(() => {
+  //   fetch("https://snapschool-server-shafaet-j.vercel.app/users/instructor")
+  //     .then((res) => res.json())
+  //     .then((data) => setInstructors(data));
+  // }, []);
+
+  if (isLoading) {
+    return (
+      <div className="  absolute top-[30%] right-[50%]">
+        <PuffLoader></PuffLoader>
+      </div>
+    );
+  }
+
+
   return (
     <>
       <section

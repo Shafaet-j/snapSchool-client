@@ -29,12 +29,11 @@ const ManageUsers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://snapschool-server-shafaet-j.vercel.app/users/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-           
             refetch();
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your User has been deleted.", "success");
@@ -44,9 +43,12 @@ const ManageUsers = () => {
     });
   };
   const handleMakeAdmin = (user) => {
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://snapschool-server-shafaet-j.vercel.app/users/admin/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
@@ -63,9 +65,12 @@ const ManageUsers = () => {
       });
   };
   const handleMakeInstructor = (user) => {
-    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://snapschool-server-shafaet-j.vercel.app/users/instructor/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {

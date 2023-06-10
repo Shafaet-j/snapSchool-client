@@ -9,7 +9,9 @@ const Classes = () => {
     refetch,
     isLoading,
   } = useQuery(["class"], async () => {
-    const res = await fetch("http://localhost:5000/class");
+    const res = await fetch(
+      "https://snapschool-server-shafaet-j.vercel.app/class"
+    );
     return res.json();
   });
 
@@ -23,7 +25,9 @@ const Classes = () => {
 
   return (
     <section className=" container mx-auto my-16">
-      <h2 className=" lg:text-5xl text-2xl font-bold">All <span className=" text-primary">Photography</span> Classes</h2>
+      <h2 className=" lg:text-5xl text-2xl font-bold">
+        All <span className=" text-primary">Photography</span> Classes
+      </h2>
 
       <div className=" grid lg:grid-cols-3 gap-5 my-10 mx-4">
         {classes.map((data) => (

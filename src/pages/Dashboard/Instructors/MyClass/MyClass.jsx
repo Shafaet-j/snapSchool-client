@@ -9,8 +9,10 @@ const MyClass = () => {
     refetch,
     isLoading,
   } = useQuery(["class"], async () => {
-    const res = await fetch(`http://localhost:5000/class/${user.email}`);
-    
+    const res = await fetch(
+      `https://snapschool-server-shafaet-j.vercel.app/class/${user.email}`
+    );
+
     return res.json();
   });
 

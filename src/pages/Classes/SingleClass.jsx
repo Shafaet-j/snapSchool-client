@@ -6,7 +6,6 @@ const SingleClass = ({ data }) => {
   const { user } = useAuth();
   const [enrollButtonText, setEnrollButtonText] = useState("Enroll");
   const handleEnrolled = (data) => {
-    
     const {
       image,
       available_seat,
@@ -28,7 +27,7 @@ const SingleClass = ({ data }) => {
       email: user.email,
     };
     if (user && user.email) {
-      fetch("http://localhost:5000/enroll", {
+      fetch("https://snapschool-server-shafaet-j.vercel.app/enroll", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -37,7 +36,6 @@ const SingleClass = ({ data }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-         
           if (data.insertedId) {
             setEnrollButtonText("Enrolled");
             Swal.fire({
