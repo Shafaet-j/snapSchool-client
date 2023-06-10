@@ -22,8 +22,8 @@ const EnrolledClass = () => {
     return res.json();
   });
 
-  const handleDelete = (id) => {
-    console.log(id);
+  const handleDelete = (email) => {
+    
     Swal.fire({
       title: "Are you sure?",
       icon: "warning",
@@ -33,12 +33,12 @@ const EnrolledClass = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/enroll/${id}`, {
+        fetch(`http://localhost:5000/enroll/${email}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            
             refetch();
             if (data.deletedCount) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
@@ -76,7 +76,7 @@ const EnrolledClass = () => {
                   <td className=" font-bold text-lg">$ {item.price}</td>
                   <td className=" flex items-center gap-5">
                     <button
-                      onClick={() => handleDelete(item._id)}
+                      onClick={() => handleDelete(item.email)}
                       className=" btn"
                     >
                       <FaTrash size={25} />

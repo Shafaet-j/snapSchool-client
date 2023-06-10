@@ -67,12 +67,12 @@ const Dashboard = () => {
             <>
               <li>
                 <Link to="/dashboard/enrolledClass">
-                  <FaBookOpen /> Enrolled Class
+                  <FaBookOpen /> Enrolled Classes
                 </Link>
               </li>
               <li>
                 <Link to="/dashboard/selectedClass">
-                  <FaUser /> Selected Class
+                  <FaUser /> Purchased classes
                 </Link>
               </li>
               <li>

@@ -54,7 +54,6 @@ const AddClass = () => {
         }
       });
 
-    console.log(data);
   };
 
   return (

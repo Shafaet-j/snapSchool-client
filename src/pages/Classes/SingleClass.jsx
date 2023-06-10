@@ -6,7 +6,7 @@ const SingleClass = ({ data }) => {
   const { user } = useAuth();
   const [enrollButtonText, setEnrollButtonText] = useState("Enroll");
   const handleEnrolled = (data) => {
-    console.log(data);
+    
     const {
       image,
       available_seat,
@@ -37,7 +37,7 @@ const SingleClass = ({ data }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+         
           if (data.insertedId) {
             setEnrollButtonText("Enrolled");
             Swal.fire({

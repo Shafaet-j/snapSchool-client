@@ -23,7 +23,7 @@ const Instructors = () => {
       >
         <div className=" container mx-auto">
           <div className="absolute top-1/2 transform -translate-x-1/2 -translate-y-1/2 left-80 text-left">
-            <h2 className=" text-4xl font-bold text-white mb-3">
+            <h2 className=" text-5xl font-bold text-white mb-3">
               Our Instructors
             </h2>
             <p className=" text-white font-bold flex items-center gap-3">
@@ -31,7 +31,7 @@ const Instructors = () => {
               <span>
                 <FaArrowRight />
               </span>
-              Instructor
+              Instructors
             </p>
           </div>
         </div>

@@ -33,7 +33,7 @@ const CheckoutForm = ({ price }) => {
       card,
     });
     if (error) {
-      console.log("error", error);
+     
       setCardError(error.message);
     } else {
       console.log("[PaymentMethod]", paymentMethod);
@@ -57,6 +57,24 @@ const CheckoutForm = ({ price }) => {
 
     if (paymentIntent.status === "succeeded") {
       setTransactionId(paymentIntent.id);
+
+      // save payment info
+      const payment = {
+        email: user?.email,
+        transactionId: paymentIntent.id,
+        price,
+        status: 'succesfull'
+      };
+
+
+
+      axiosSecure.post('/payments',{payment})
+      .then(res=>{
+       
+        if(res.data.insertedId){
+          alert('saved')
+        }
+      })
     }
   };
 

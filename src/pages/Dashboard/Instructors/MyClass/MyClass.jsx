@@ -10,7 +10,7 @@ const MyClass = () => {
     isLoading,
   } = useQuery(["class"], async () => {
     const res = await fetch(`http://localhost:5000/class/${user.email}`);
-    console.log(classes);
+    
     return res.json();
   });
 

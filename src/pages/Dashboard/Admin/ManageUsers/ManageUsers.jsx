@@ -34,7 +34,7 @@ const ManageUsers = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+           
             refetch();
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your User has been deleted.", "success");
