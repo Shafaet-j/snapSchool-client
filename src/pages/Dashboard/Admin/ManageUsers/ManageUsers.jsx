@@ -97,7 +97,7 @@ const ManageUsers = () => {
 
   return (
     <div className="container mx-auto">
-      <h2>Total users:{users.length}</h2>
+      <h2 className=" text-5xl font-bold mb-7">Total users:{users.length}</h2>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

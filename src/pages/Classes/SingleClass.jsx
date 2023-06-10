@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 const SingleClass = ({ data }) => {
   const { user } = useAuth();
+  const [isAdmin] = useAdmin()
+  const [isInstructor] = useInstructor()
   const [enrollButtonText, setEnrollButtonText] = useState("Enroll");
   const handleEnrolled = (data) => {
     const {
@@ -109,7 +113,7 @@ const SingleClass = ({ data }) => {
           Price: <span className=" text-primary">${data.price}</span>
         </p>
         <button
-          disabled={enrollButtonText === "Enrolled" || data.available_seat == 0}
+          disabled={enrollButtonText === "Enrolled" || data.available_seat == 0 || isAdmin || isInstructor}
           onClick={() => handleEnrolled(data)}
           className=" btn"
         >

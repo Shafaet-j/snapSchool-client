@@ -39,6 +39,7 @@ const AddClass = () => {
           } = data;
           const classItem = {
             name,
+            status: "pending",
             instructor_name,
             instructor_email,
             available_seat,
@@ -53,7 +54,6 @@ const AddClass = () => {
           });
         }
       });
-
   };
 
   return (
@@ -97,6 +97,7 @@ const AddClass = () => {
             className="input input-bordered w-full"
           />
         </div>
+
         <div className="form-control w-full ">
           <label className="label">
             <span className="label-text font-semibold">Instructor email*</span>
@@ -109,6 +110,7 @@ const AddClass = () => {
             className="input input-bordered w-full"
           />
         </div>
+
         <div className="form-control w-full ">
           <label className="label">
             <span className="label-text font-semibold">Available seats*</span>

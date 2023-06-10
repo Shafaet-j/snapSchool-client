@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import useAuth from "../../../../hooks/useAuth";
+import { Link } from "react-router-dom";
+import UpdateClass from "./UpdateClass";
 
 const MyClass = () => {
   const { user } = useAuth();
@@ -16,6 +18,13 @@ const MyClass = () => {
     return res.json();
   });
 
+  const [classId, setClassId] = useState(null);
+  const [classInfo, setClassInfo] = useState(classes);
+  const [isOpen, setIsOpen] = useState(false);
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <section className=" container mx-auto">
       MyClass{classes.length}
@@ -30,6 +39,7 @@ const MyClass = () => {
               <th>Email</th>
               <th>Course Name</th>
               <th>Price</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -41,14 +51,31 @@ const MyClass = () => {
                 <td>{singleClass.instructor_email}</td>
                 <td>{singleClass.name}</td>
                 <td>$ {singleClass.price}</td>
+                <td className=" font-bold">{singleClass.status}</td>
                 <td>
-                  <button className=" btn">Update</button>
+                  <Link>
+                    <button
+                      onClick={() => {
+                        setIsOpen(true);
+                        setClassId(singleClass._id);
+                      }}
+                      className=" btn"
+                    >
+                      Update
+                    </button>
+                  </Link>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      <UpdateClass
+        classInfo={classInfo}
+        classId={classId}
+        isOpen={isOpen}
+        closeModal={closeModal}
+      ></UpdateClass>
     </section>
   );
 };

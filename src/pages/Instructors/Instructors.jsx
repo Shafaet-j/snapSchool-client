@@ -67,7 +67,7 @@ const Instructors = () => {
         {/* <h1 className=" lg:text-5xl font-bold">Our Instructors</h1> */}
         <div className=" grid grid-cols-3">
           {instructors.map((instructor) => (
-            <Instructor instructor={instructor}></Instructor>
+            <Instructor key={instructor._id} instructor={instructor}></Instructor>
           ))}
         </div>
       </section>
