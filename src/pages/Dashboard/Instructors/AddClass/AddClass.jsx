@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 const AddClass = () => {
@@ -58,6 +59,9 @@ const AddClass = () => {
 
   return (
     <section className=" container mx-auto">
+      <Helmet>
+        <title>SnapSchool | Dashboard | AddClasses</title>
+      </Helmet>
       <h1>Add your classes</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className=" flex items-center gap-4">
@@ -133,7 +137,7 @@ const AddClass = () => {
             className="input input-bordered w-full "
           />
         </div>
-        <input className=" btn my-8" type="submit" value="Add class" />
+        <input className=" btn btn-primary my-8" type="submit" value="Add class" />
       </form>
     </section>
   );

@@ -1,22 +1,35 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
-const UpdateClass = ({
-  modalHandler,
-  isOpen,
-  closeModal,
-  classId,
-  classInfo,
-}) => {
-  console.log(classInfo);
+const UpdateClass = ({ modalHandler, isOpen, selectedClass, closeModal }) => {
+  console.log(selectedClass);
+  // console.log(selectedClass.name);
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    fetch(
+      `https://snapschool-server-shafaet-j.vercel.app/class/${selectedClass._id}`,
+      {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+      }
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.modifiedCount > 0) {
+          closeModal()
+          toast.success("Successfully Updated.");
+        }
+      });
+  };
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -49,10 +62,10 @@ const UpdateClass = ({
                   as="h3"
                   className="text-lg font-medium text-center leading-6 text-gray-900"
                 >
-                  Review Info Before Payment
+                  Update Your class
                 </Dialog.Title>
                 <div className="mt-2 mb-4">
-                  <p className="text-lg font-bold">Price:${classId}</p>
+                  <p className="text-lg font-bold">Test:</p>
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -65,7 +78,7 @@ const UpdateClass = ({
                     <input
                       {...register("name", { required: true })}
                       type="text"
-                      defaultValue={classInfo.name}
+                      defaultValue={selectedClass?.name}
                       placeholder="Type Class name"
                       className="input input-bordered w-full"
                     />
@@ -79,7 +92,7 @@ const UpdateClass = ({
                     </label>
                     <input
                       type="text"
-                      defaultValue={classInfo.available_seat}
+                      defaultValue={selectedClass?.available_seat}
                       {...register("available_seat", { required: true })}
                       placeholder="Type here"
                       className="input input-bordered w-full"
@@ -91,14 +104,14 @@ const UpdateClass = ({
                     </label>
                     <input
                       type="number"
-                      defaultValue={classInfo.price}
+                      defaultValue={selectedClass?.price}
                       {...register("price", { required: true })}
                       placeholder="Type here"
                       className="input input-bordered w-full "
                     />
                   </div>
                   <input
-                    className=" btn my-8"
+                    className=" btn btn-primary my-8"
                     type="submit"
                     value="Update class"
                   />
@@ -111,15 +124,15 @@ const UpdateClass = ({
                     className="inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
                     onClick={closeModal}
                   >
-                    Cancel
+                    Close
                   </button>
-                  <button
+                  {/* <button
                     type="button"
                     className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
                     onClick={modalHandler}
                   >
-                    Pay
-                  </button>
+                    Updateee
+                  </button> */}
                 </div>
               </Dialog.Panel>
             </Transition.Child>

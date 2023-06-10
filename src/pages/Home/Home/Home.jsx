@@ -6,6 +6,7 @@ import { PuffLoader } from "react-spinners";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import WhatOurStudentSay from "../WhatOurStudentSay/WhatOurStudentSay";
 import Offer from "../Offer/Offer";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const { loading } = useContext(AuthContext);
@@ -18,6 +19,9 @@ const Home = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>SnapSchool | Home</title>
+      </Helmet>
       <Banner></Banner>
       <PopularClasses></PopularClasses>
       <Offer></Offer>

@@ -15,7 +15,7 @@ const InstructorCard = ({ popularInstructor }) => {
           <p className=" text-lg font-semibold"> Email: {email}</p>
           <div className="">
             <Link to="/classes">
-              <button className="btn capitalize font-semibold text-lg">
+              <button className="btn capitalize font-semibold text-lg btn-primary">
                 See Classes
               </button>
             </Link>

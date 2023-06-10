@@ -2,6 +2,7 @@ import React from "react";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Row from "./Row";
+import { Helmet } from "react-helmet-async";
 
 const ManageClasses = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -16,6 +17,9 @@ const ManageClasses = () => {
 
   return (
     <section className=" container mx-auto">
+       <Helmet>
+        <title>SnapSchool | Dashboard | ManageClasses</title>
+      </Helmet>
      <h2 className=" text-5xl font-bold mb-7">Total Classes:{classes.length}</h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra">

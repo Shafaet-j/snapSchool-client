@@ -5,9 +5,9 @@ import { FaArrowRight } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import { PuffLoader } from "react-spinners";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 const Instructors = () => {
-
   const {
     data: instructors = [],
     refetch,
@@ -18,7 +18,6 @@ const Instructors = () => {
     );
     return res.json();
   });
-
 
   // const {loading} = useAuth()
   // const [instructors, setInstructors] = useState([]);
@@ -36,9 +35,11 @@ const Instructors = () => {
     );
   }
 
-
   return (
     <>
+      <Helmet>
+        <title>SnapSchool | Instructors</title>
+      </Helmet>
       <section
         className=" h-[35vh] relative "
         style={{
@@ -67,7 +68,10 @@ const Instructors = () => {
         {/* <h1 className=" lg:text-5xl font-bold">Our Instructors</h1> */}
         <div className=" grid grid-cols-3">
           {instructors.map((instructor) => (
-            <Instructor key={instructor._id} instructor={instructor}></Instructor>
+            <Instructor
+              key={instructor._id}
+              instructor={instructor}
+            ></Instructor>
           ))}
         </div>
       </section>

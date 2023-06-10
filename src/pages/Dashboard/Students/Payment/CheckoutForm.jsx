@@ -98,7 +98,7 @@ const CheckoutForm = ({ price }) => {
           }}
         />
         <button
-          className=" w-full btn my-5"
+          className=" w-full btn-primary btn my-5"
           type="submit"
           disabled={!stripe || !clientSecret || processing}
         >

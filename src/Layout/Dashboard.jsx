@@ -4,6 +4,7 @@ import { FaBeer, FaBookOpen, FaHome, FaUser } from "react-icons/fa";
 import Navbar from "../pages/Shared/Navbar/Navbar";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
   // const isAdmin = false;
@@ -11,6 +12,9 @@ const Dashboard = () => {
   const [isInstructor] = useInstructor()
   return (
     <div className="drawer lg:drawer-open">
+       <Helmet>
+        <title>SnapSchool | Dashboard</title>
+      </Helmet>
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center">
         {/* Page content here */}

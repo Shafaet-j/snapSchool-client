@@ -5,6 +5,7 @@ import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { PuffLoader } from "react-spinners";
+import { Helmet } from "react-helmet-async";
 
 const ManageUsers = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -97,6 +98,9 @@ const ManageUsers = () => {
 
   return (
     <div className="container mx-auto">
+      <Helmet>
+        <title>SnapSchool | Dashboard | ManageUsers</title>
+      </Helmet>
       <h2 className=" text-5xl font-bold mb-7">Total users:{users.length}</h2>
       <div className="overflow-x-auto">
         <table className="table">

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import SingleClass from "./SingleClass";
 import { PuffLoader } from "react-spinners";
+import { Helmet } from "react-helmet-async";
 
 const Classes = () => {
   const {
@@ -15,6 +16,8 @@ const Classes = () => {
     return res.json();
   });
 
+  console.log(classes)
+
   if (isLoading) {
     return (
       <div className="  absolute top-[30%] right-[50%]">
@@ -25,6 +28,9 @@ const Classes = () => {
 
   return (
     <section className=" container mx-auto my-16">
+      <Helmet>
+        <title>SnapSchool | Classes</title>
+      </Helmet>
       <h2 className=" lg:text-5xl text-2xl font-bold">
         All <span className=" text-primary">Photography</span> Classes
       </h2>

@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import useAuth from "../../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import UpdateClass from "./UpdateClass";
+import ClassRow from "./ClassRow";
+import { Helmet } from "react-helmet-async";
 
 const MyClass = () => {
   const { user } = useAuth();
@@ -18,15 +20,19 @@ const MyClass = () => {
     return res.json();
   });
 
-  const [classId, setClassId] = useState(null);
-  const [classInfo, setClassInfo] = useState(classes);
+  const [selectedClass, setSelectedClass] = useState(null);
+
   const [isOpen, setIsOpen] = useState(false);
   const closeModal = () => {
     setIsOpen(false);
+    setSelectedClass(null);
   };
 
   return (
     <section className=" container mx-auto">
+      <Helmet>
+        <title>SnapSchool | Dashboard | MyClasses</title>
+      </Helmet>
       MyClass{classes.length}
       <h2 className=" text-5xl font-bold">My classes</h2>
       <div className="overflow-x-auto">
@@ -57,9 +63,9 @@ const MyClass = () => {
                     <button
                       onClick={() => {
                         setIsOpen(true);
-                        setClassId(singleClass._id);
+                        setSelectedClass(singleClass);
                       }}
-                      className=" btn"
+                      className=" btn btn-primary"
                     >
                       Update
                     </button>
@@ -70,12 +76,13 @@ const MyClass = () => {
           </tbody>
         </table>
       </div>
-      <UpdateClass
-        classInfo={classInfo}
-        classId={classId}
-        isOpen={isOpen}
-        closeModal={closeModal}
-      ></UpdateClass>
+      {selectedClass && (
+        <UpdateClass
+          selectedClass={selectedClass}
+          closeModal={closeModal}
+          isOpen={isOpen}
+        ></UpdateClass>
+      )}
     </section>
   );
 };

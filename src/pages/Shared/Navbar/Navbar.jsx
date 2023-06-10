@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProviders";
-import { Tooltip as ReactTooltip } from 'react-tooltip'
+import { Tooltip as ReactTooltip } from "react-tooltip";
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructor from "../../../hooks/useInstructor";
 
 const Navbar = () => {
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   const navOptions = (
     <>
       <li>
@@ -16,7 +20,17 @@ const Navbar = () => {
         <Link to="/classes"> Classes</Link>
       </li>
       <li>
-        <Link to="/dashboard">Dashboard</Link>
+        <Link
+          to={
+            isAdmin
+              ? "/dashboard/manageClasses"
+              : isInstructor
+              ? "/dashboard/addClass"
+              : "/dashboard"
+          }
+        >
+          Dashboard
+        </Link>
       </li>
     </>
   );
@@ -31,14 +45,13 @@ const Navbar = () => {
       });
   };
 
-
   return (
     <div className="  z-10 sticky top-0 bg-white">
       <>
         <div className="navbar container mx-auto">
           <div className="navbar-start">
             <div className="dropdown">
-              <label tabIndex={0} className="btn btn-ghost lg:hidden">
+              <label tabIndex={0} className="btn btn-ghost lg:hidden btn-primary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -67,7 +80,7 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1">{navOptions}</ul>
           </div>
           <div className=" navbar-end">
-          <ul className=" flex items-center flex-row-reverse gap-4">
+            <ul className=" flex items-center flex-row-reverse gap-4">
               <div onClick={handleLogOut}>
                 {user && <NavLink>logOut</NavLink>}
               </div>

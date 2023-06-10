@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import { useForm } from "react-hook-form";
@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const LogIn = () => {
+  const [error, setError] = useState("");
   const {
     register,
     handleSubmit,
@@ -17,22 +18,22 @@ const LogIn = () => {
   const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
-
-    signIn(data.email, data.password).then((result) => {
-      reset(data);
-      const user = result.user;
-      
-      Swal.fire({
-        title: "User Login Successful.",
-        showClass: {
-          popup: "animate__animated animate__fadeInDown",
-        },
-        hideClass: {
-          popup: "animate__animated animate__fadeOutUp",
-        },
-      });
-      navigate(from, { replace: true });
-    });
+    signIn(data.email, data.password)
+      .then((result) => {
+        reset(data);
+        const user = result.user;
+        Swal.fire({
+          title: `${user.displayName} wellcome`,
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
+        navigate(from, { replace: true });
+      })
+      .then((err) => setError(err.message));
   };
 
   return (
@@ -98,6 +99,7 @@ const LogIn = () => {
               <input className="btn btn-primary" type="submit" value="Log In" />
             </div>
           </form>
+          <p>{error}</p>
           <p>
             New to SnapSchool??
             <span className=" text-success">
