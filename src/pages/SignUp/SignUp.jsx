@@ -1,7 +1,5 @@
-import { useContext } from "react";
-
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProviders";
@@ -13,19 +11,28 @@ const SignUp = () => {
     handleSubmit,
     reset,
     formState: { errors },
+    watch,
   } = useForm();
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [passwordError, setPasswordError] = useState(false);
+  const password = watch("password");
+  const email = watch("email");
 
   const onSubmit = (data) => {
-    createUser(data.email, data.password).then((result) => {
+    if (data.password !== data.confirmPassword) {
+      setPasswordError(true);
+      return;
+    }
+
+    createUser(email, data.password).then((result) => {
       const loggedUser = result.user;
 
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
           const saveUser = {
             name: data.name,
-            email: data.email,
+            email: email,
             image: data.photoURL,
           };
           fetch("https://snapschool-server-shafaet-j.vercel.app/users", {
@@ -42,7 +49,7 @@ const SignUp = () => {
                 Swal.fire({
                   position: "top-end",
                   icon: "success",
-                  title: "User created successfully.",
+                  title: `Welcome ${loggedUser.displayName}`,
                   showConfirmButton: false,
                   timer: 1500,
                 });
@@ -98,7 +105,7 @@ const SignUp = () => {
                   type="email"
                   {...register("email", { required: true })}
                   name="email"
-                  placeholder="email"
+                  placeholder="Email"
                   className="input input-bordered"
                 />
                 {errors.email && (
@@ -117,7 +124,7 @@ const SignUp = () => {
                     maxLength: 20,
                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                   })}
-                  placeholder="password"
+                  placeholder="Password"
                   className="input input-bordered"
                 />
                 {errors.password?.type === "required" && (
@@ -133,8 +140,7 @@ const SignUp = () => {
                 )}
                 {errors.password?.type === "pattern" && (
                   <p className="text-red-600">
-                    Password must have one Uppercase one lower case, one number
-                    and one special character.
+                    Password must have one uppercase, one lowercase, one number, and one special character.
                   </p>
                 )}
                 <label className="label">
@@ -142,6 +148,31 @@ const SignUp = () => {
                     Forgot password?
                   </a>
                 </label>
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Confirm Password</span>
+                </label>
+                <input
+                  type="password"
+                  {...register("confirmPassword", {
+                    required: true,
+                    validate: (value) =>
+                      value === password || "Passwords do not match",
+                  })}
+                  placeholder="Confirm Password"
+                  className="input input-bordered"
+                />
+                {errors.confirmPassword && (
+                  <span className="text-red-600">
+                    {errors.confirmPassword.message}
+                  </span>
+                )}
+                {passwordError && (
+                  <span className="text-red-600">
+                    Passwords do not match
+                  </span>
+                )}
               </div>
               <div className="form-control mt-6">
                 <input
@@ -152,12 +183,12 @@ const SignUp = () => {
               </div>
             </form>
             <p>
-              Already have an account??{" "}
-              <span className=" text-success">
+              Already have an account?{" "}
+              <span className="text-success">
                 <Link to="/login">Login</Link>
               </span>
             </p>
-            <SocialLogin></SocialLogin>
+            <SocialLogin />
           </div>
         </div>
       </div>

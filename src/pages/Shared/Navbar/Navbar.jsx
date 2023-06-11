@@ -22,19 +22,21 @@ const Navbar = () => {
       <li>
         <Link to="/classes"> Classes</Link>
       </li>
-      <li>
-        <Link
-          to={
-            isAdmin
-              ? "/dashboard/manageClasses"
-              : isInstructor
-              ? "/dashboard/addClass"
-              : "/dashboard"
-          }
-        >
-          Dashboard
-        </Link>
-      </li>
+      {user && (
+        <li>
+          <Link
+            to={
+              isAdmin
+                ? "/dashboard/manageClasses"
+                : isInstructor
+                ? "/dashboard/addClass"
+                : "/dashboard"
+            }
+          >
+            Dashboard
+          </Link>
+        </li>
+      )}
     </>
   );
 
@@ -83,7 +85,7 @@ const Navbar = () => {
             </a>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">{navOptions}</ul>
+            <ul className="menu menu-horizontal px-1 text-lg">{navOptions}</ul>
           </div>
           <div className=" navbar-end">
             <ul className=" flex items-center flex-row-reverse gap-4">

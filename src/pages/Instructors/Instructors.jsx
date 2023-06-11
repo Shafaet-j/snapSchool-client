@@ -49,7 +49,7 @@ const Instructors = () => {
           backgroundPosition: "center",
         }}
       >
-        <div className=" text-left ml-8">
+        <div className=" text-left ml-8 lg:ml-[210px]">
           <h2 className=" lg:text-5xl text-3xl font-bold text-white mb-3">
             Our Instructors
           </h2>
