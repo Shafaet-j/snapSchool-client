@@ -6,7 +6,7 @@ const ClassCard = ({ popularClass }) => {
   const { name, image, price } = popularClass;
   return (
     <Slide direction="up" triggerOnce>
-      <div className="card   bg-base-100 shadow-xl p-0 pb-7">
+      <div className="card   bg-base-100 shadow-xl p-0 pb-7 dark:bg-slate-800 dark:text-slate-300">
         <figure>
           <img className=" h-80" src={image} alt="Shoes" />
         </figure>

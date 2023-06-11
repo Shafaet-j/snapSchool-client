@@ -16,13 +16,13 @@ const ManageClasses = () => {
   });
 
   return (
-    <section className=" container mx-auto">
+    <section className=" container mx-auto px-3">
        <Helmet>
         <title>SnapSchool | Dashboard | ManageClasses</title>
       </Helmet>
      <h2 className=" text-5xl font-bold mb-7">Total Classes:{classes.length}</h2>
       <div className="overflow-x-auto">
-        <table className="table table-zebra">
+        <table className="table table-zebra text-xs lg:text-base">
           {/* head */}
           <thead>
             <tr>

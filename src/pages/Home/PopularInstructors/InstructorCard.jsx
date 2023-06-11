@@ -6,7 +6,7 @@ const InstructorCard = ({ popularInstructor }) => {
   const { name, email, image } = popularInstructor;
   return (
     <Slide direction="up" triggerOnce>
-      <div className="card w-96 bg-base-100 shadow-xl my-6">
+      <div className="card w-96 bg-base-100 shadow-xl my-6 dark:text-slate-300 dark:bg-slate-800">
         <figure>
           <img src={image} alt="Shoes" />
         </figure>

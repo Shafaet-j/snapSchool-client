@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 
 const UpdateClass = ({ modalHandler, isOpen, selectedClass, closeModal }) => {
-  console.log(selectedClass);
+ 
   // console.log(selectedClass.name);
   const {
     register,
@@ -13,7 +13,6 @@ const UpdateClass = ({ modalHandler, isOpen, selectedClass, closeModal }) => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     fetch(
       `https://snapschool-server-shafaet-j.vercel.app/class/${selectedClass._id}`,
       {

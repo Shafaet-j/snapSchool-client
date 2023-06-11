@@ -12,7 +12,7 @@ const Offer = () => {
       }}
       className="featured-item bg-fixed text-white my-20 h-[70vh]"
     >
-      <div className="md:flex justify-center items-center bg-[#073579] bg-opacity-90 pb-20 pt-12 px-36 h-[70vh]">
+      <div className="flex justify-center items-center bg-[#073579] bg-opacity-90 h-[70vh]">
         <div className="md:ml-10 space-y-4">
           <p className=" tracking-widest">ARE YOU READY FOR THIS OFFER</p>
           <p className=" text-5xl font-bold">50% Offer For Very First 50</p>

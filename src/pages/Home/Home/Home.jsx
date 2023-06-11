@@ -10,15 +10,15 @@ import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const { loading } = useContext(AuthContext);
-  if (loading) {
-    return (
-      <div className="  absolute top-[30%] right-[50%]">
-        <PuffLoader></PuffLoader>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="  absolute top-[30%] right-[50%]">
+  //       <PuffLoader></PuffLoader>
+  //     </div>
+  //   );
+  // }
   return (
-    <div>
+    <div className="dark:bg-slate-950">
       <Helmet>
         <title>SnapSchool | Home</title>
       </Helmet>

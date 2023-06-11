@@ -37,7 +37,7 @@ const SelectedClass = () => {
           </thead>
           <tbody>
             {payments.map((payment, index) => (
-              <tr key={user._id}>
+              <tr key={index}>
                 <th>{index + 1}</th>
                 <td className=" text-green-700 font-bold">
                   {payment.payment.transactionId}

@@ -17,6 +17,16 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => !prevMode);
+  };
+
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -61,11 +71,11 @@ const AuthProvider = ({ children }) => {
           })
           .then((data) => {
             localStorage.setItem("access-token", data.data.token);
+            setLoading(false);
           });
       } else {
         localStorage.removeItem("access-token");
       }
-      setLoading(false);
     });
     return () => {
       return unsubscribe();
@@ -80,6 +90,8 @@ const AuthProvider = ({ children }) => {
     logOut,
     googleSignIn,
     updateUserProfile,
+    toggleDarkMode,
+    darkMode,
   };
 
   return (

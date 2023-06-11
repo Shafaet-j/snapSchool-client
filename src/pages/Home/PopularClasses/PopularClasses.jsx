@@ -15,7 +15,7 @@ const PopularClasses = () => {
     );
     return res.json();
   });
-  console.log(popularClasses)
+  
 
   if (isLoading) {
     return (
@@ -29,7 +29,7 @@ const PopularClasses = () => {
 
   return (
     <div className=" container mx-auto mb-10 px-5">
-      <h1 className=" lg:text-5xl font-bold mb-10">
+      <h1 className=" lg:text-5xl text-3xl font-bold mb-10 dark:text-slate-300">
         Our <span className=" text-primary">Featured</span> Classes
       </h1>
       <div className=" grid grid-cols-1 lg:grid-cols-3 gap-7">

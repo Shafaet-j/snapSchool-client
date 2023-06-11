@@ -13,7 +13,7 @@ import { FaQuoteLeft } from "react-icons/fa";
 const WhatOurStudentSay = () => {
   return (
     <section
-      className=" h-[60vh] my-10 flex items-center w-full overflow-hidden"
+      className=" h-[60vh] flex items-center w-full overflow-hidden dark:bg-slate-950"
       style={{
         backgroundImage: `url(${bg2})`,
       }}
