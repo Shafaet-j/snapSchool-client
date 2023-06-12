@@ -55,10 +55,10 @@ const MyClass = () => {
             {classes.map((singleClass, index) => (
               <tr key={singleClass._id}>
                 <th>{index + 1}</th>
-                <td>{singleClass.instructor_name}</td>
-                <td>{singleClass.instructor_email}</td>
-                <td>{singleClass.name}</td>
-                <td>$ {singleClass.price}</td>
+                <td className="font-bold">{singleClass.instructor_email}</td>
+                <td className=" font-bold">{singleClass.instructor_name}</td>
+                <td className=" font-bold">{singleClass.name}</td>
+                <td className=" font-bold">$ {singleClass.price}</td>
                 <td className=" font-bold">{singleClass.status}</td>
                 <td className=" font-bold">{singleClass.totalEnrolled}</td>
                 <td>
@@ -74,7 +74,11 @@ const MyClass = () => {
                     </button>
                   </Link>
                 </td>
-                <td>{singleClass.status === 'pending' && 'approved' ? 'no feedback': ''}</td>
+                <td className=" font-semibold">
+                  {singleClass.status === "pending" && "approved"
+                    ? "waiting for approval..."
+                    : `${singleClass.feedback}`}
+                </td>
               </tr>
             ))}
           </tbody>

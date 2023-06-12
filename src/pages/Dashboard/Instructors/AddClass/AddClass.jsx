@@ -40,6 +40,7 @@ const AddClass = () => {
           } = data;
           const classItem = {
             name,
+            feedback: "",
             status: "pending",
             instructor_name,
             instructor_email,
@@ -137,7 +138,11 @@ const AddClass = () => {
             className="input input-bordered w-full "
           />
         </div>
-        <input className=" btn btn-primary my-8" type="submit" value="Add class" />
+        <input
+          className=" btn btn-primary my-8"
+          type="submit"
+          value="Add class"
+        />
       </form>
     </section>
   );
