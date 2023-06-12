@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const ClassRow = ({ singleClass, index,setIsOpen }) => {
+const ClassRow = ({ singleClass, index, setIsOpen }) => {
+
   return (
     <tr>
       <th>{index + 1}</th>
@@ -12,9 +13,14 @@ const ClassRow = ({ singleClass, index,setIsOpen }) => {
       <td className=" font-bold">{singleClass.status}</td>
       <td>
         <Link>
-          <button onClick={()=>{
-            setIsOpen(true);
-          }} className=" btn">Update</button>
+          <button
+            onClick={() => {
+              setIsOpen(true);
+            }}
+            className=" btn"
+          >
+            Update
+          </button>
         </Link>
       </td>
     </tr>

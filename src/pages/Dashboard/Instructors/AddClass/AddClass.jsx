@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { TbFidgetSpinner } from "react-icons/tb";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
@@ -8,7 +9,7 @@ import { Helmet } from "react-helmet-async";
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 const AddClass = () => {
   const [axiosSecure] = useAxiosSecure();
-  const { user } = useAuth();
+  const { user, loading, setLoading } = useAuth();
 
   const {
     register,
@@ -45,6 +46,7 @@ const AddClass = () => {
             instructor_name,
             instructor_email,
             available_seat,
+            total_enrolled: 0,
             price: parseFloat(price),
             image: imgURL,
           };
@@ -138,11 +140,13 @@ const AddClass = () => {
             className="input input-bordered w-full "
           />
         </div>
-        <input
-          className=" btn btn-primary my-8"
-          type="submit"
-          value="Add class"
-        />
+        <button className=" btn btn-primary w-[200px] mt-7" type="submit">
+          {loading ? (
+            <span className="loading loading-spinner loading-md"></span>
+          ) : (
+            "Add class"
+          )}
+        </button>
       </form>
     </section>
   );

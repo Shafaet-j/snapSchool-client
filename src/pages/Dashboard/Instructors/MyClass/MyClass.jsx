@@ -33,8 +33,7 @@ const MyClass = () => {
       <Helmet>
         <title>SnapSchool | Dashboard | MyClasses</title>
       </Helmet>
-      MyClass{classes.length}
-      <h2 className=" text-5xl font-bold">My classes</h2>
+      <h2 className=" text-5xl font-bold mb-6">My classes</h2>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -60,7 +59,7 @@ const MyClass = () => {
                 <td className=" font-bold">{singleClass.name}</td>
                 <td className=" font-bold">$ {singleClass.price}</td>
                 <td className=" font-bold">{singleClass.status}</td>
-                <td className=" font-bold">{singleClass.totalEnrolled}</td>
+                <td className=" font-bold">{singleClass.total_enrolled === 0 ? '' : singleClass.total_enrolled}</td>
                 <td>
                   <Link>
                     <button

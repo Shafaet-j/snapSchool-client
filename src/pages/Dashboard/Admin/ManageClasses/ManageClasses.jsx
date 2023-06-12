@@ -61,6 +61,7 @@ const ManageClasses = () => {
           {/* head */}
           <thead>
             <tr>
+              <th>Course Image</th>
               <th>Course name</th>
               <th>Instructor Name</th>
               <th>Email</th>

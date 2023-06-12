@@ -143,11 +143,7 @@ const SignUp = () => {
                     Password must have one uppercase, one lowercase, one number, and one special character.
                   </p>
                 )}
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
+                
               </div>
               <div className="form-control">
                 <label className="label">

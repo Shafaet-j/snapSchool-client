@@ -16,10 +16,14 @@ const Row = ({ singleClass, handleApproved, handleReject }) => {
     name,
     price,
     status,
+    image,
   } = singleClass;
   return (
     <>
       <tr>
+        <th>
+          <img className=" avatar w-24 rounded-xl" src={image} alt="" />
+        </th>
         <th>{name}</th>
         <th>{instructor_name}</th>
         <th>{instructor_email}</th>

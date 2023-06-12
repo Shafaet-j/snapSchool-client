@@ -57,29 +57,12 @@ const CheckoutForm = ({ price, course }) => {
 
     if (paymentIntent.status === "succeeded") {
       setTransactionId(paymentIntent.id);
-      // fetch(
-      //   `https://snapschool-server-shafaet-j.vercel.app/`,
-      //   {
-      //     method: "PUT",
-      //     headers: { "content-type": "application/json" },
-      //     body: JSON.stringify(data),
-      //   }
-      // )
-      //   .then((res) => res.json())
-      //   .then((result) => {
-      //     if (result.modifiedCount > 0) {
-      //       closeModal();
-      //       toast.success("Successfully Updated.");
-      //     }
-      //   });
-
-      // course.totalEnrolled++; 
-
       // save payment info
       const payment = {
         email: user?.email,
         transactionId: paymentIntent.id,
         price,
+        courseId: course._id,
         courseName: course.name,
         status: "succesfull",
       };
@@ -87,6 +70,20 @@ const CheckoutForm = ({ price, course }) => {
       axiosSecure.post("/payments", { payment }).then((res) => {
         if (res.data.insertedId) {
           toast.success("Payment succesfull");
+          // fetch(
+          //   `https://snapschool-server-shafaet-j.vercel.app/courseEnrolled?id=${course._id}`,
+          //   {
+          //     method: "PUT",
+          //     headers: { "content-type": "application/json" },
+          //   }
+          // )
+          //   .then((res) => res.json())
+          //   .then((result) => {
+          //     if (result.modifiedCount > 0) {
+          //       closeModal();
+
+          //     }
+          //   });
         }
       });
     }

@@ -15,7 +15,7 @@ const Banner = () => {
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
         <SwiperSlide>
           <div className="relative">
-            <img className="h-[80vh] w-full object-cover" src={bg1} alt="" />
+            <img className="h-[80vh] w-full object-cover -scale-x-100" src={bg1} alt="" />
             <div className="absolute inset-0 overlay"></div>
             <Fade duration={3000}>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  w-full">
