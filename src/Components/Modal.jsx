@@ -5,7 +5,9 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
-const Modal = ({ isOpen, closeModal,price }) => {
+const Modal = ({ isOpen, closeModal,price,course }) => {
+  
+ 
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -45,7 +47,7 @@ const Modal = ({ isOpen, closeModal,price }) => {
 
                 {/* payment checkOut  */}
                 <Elements stripe={stripePromise}>
-                  <CheckoutForm price={price} ></CheckoutForm>
+                  <CheckoutForm course={course} price={price} ></CheckoutForm>
                 </Elements>
 
                 <hr className="mt-8 " />
@@ -55,7 +57,7 @@ const Modal = ({ isOpen, closeModal,price }) => {
                     className="inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
                     onClick={closeModal}
                   >
-                    Cancel
+                    Close
                   </button>
                   {/* <button
                     type="button"

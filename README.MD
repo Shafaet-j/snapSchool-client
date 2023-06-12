@@ -1,6 +1,6 @@
 # **SnapSchool**
 
-<a  href="https://snapschool-dfc61.web.app/">
+<a  href="https://snapschool.netlify.app/">
 <img  width="100%"  height="100%"  src="https://i.ibb.co/mcf4gPs/snap.png"/>
 </a>
 
@@ -41,4 +41,4 @@
 - **React Helmate**
 - **React Spinner**
 
-### `Website Link :` [https://snapschool-dfc61.web.app/](https://snapschool-dfc61.web.app/)
+### `Website Link :` [https://snapschool.netlify.app/](https://snapschool.netlify.app/)

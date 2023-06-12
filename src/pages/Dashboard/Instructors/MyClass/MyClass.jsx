@@ -46,7 +46,9 @@ const MyClass = () => {
               <th>Course Name</th>
               <th>Price</th>
               <th>Status</th>
+              <th>Total Enrolled</th>
               <th>Action</th>
+              <th>Feedback</th>
             </tr>
           </thead>
           <tbody>
@@ -58,6 +60,7 @@ const MyClass = () => {
                 <td>{singleClass.name}</td>
                 <td>$ {singleClass.price}</td>
                 <td className=" font-bold">{singleClass.status}</td>
+                <td className=" font-bold">{singleClass.totalEnrolled}</td>
                 <td>
                   <Link>
                     <button
@@ -71,6 +74,7 @@ const MyClass = () => {
                     </button>
                   </Link>
                 </td>
+                <td>{singleClass.status === 'pending' && 'approved' ? 'no feedback': ''}</td>
               </tr>
             ))}
           </tbody>

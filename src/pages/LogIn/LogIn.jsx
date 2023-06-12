@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import LogInCredential from "./LogInCredential";
 
-
 const LogIn = () => {
   const [error, setError] = useState("");
   const {
@@ -35,7 +34,7 @@ const LogIn = () => {
         });
         navigate(from, { replace: true });
       })
-      .then((err) => setError(err.message));
+      .catch((err) => setError(err.message));
   };
 
   return (
@@ -68,7 +67,6 @@ const LogIn = () => {
                 required: true,
                 minLength: 6,
                 maxLength: 20,
-                pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
               })}
               placeholder="password"
               className="input input-bordered"
@@ -84,12 +82,7 @@ const LogIn = () => {
                 Password must be less than 20 characters
               </p>
             )}
-            {errors.password?.type === "pattern" && (
-              <p className="text-red-600">
-                Password must have one Uppercase one lower case, one number and
-                one special character.
-              </p>
-            )}
+
             <label className="label">
               <a href="#" className="label-text-alt link link-hover">
                 Forgot password?
@@ -100,7 +93,7 @@ const LogIn = () => {
             <input className="btn btn-primary" type="submit" value="Log In" />
           </div>
         </form>
-        <p>{error}</p>
+        <p className=" text-error font-semibold">{error}</p>
         <p>
           New to SnapSchool??
           <span className=" text-primary font-bold mt-3">
@@ -108,7 +101,7 @@ const LogIn = () => {
           </span>
         </p>
         <SocialLogin></SocialLogin>
-       <LogInCredential></LogInCredential>
+        <LogInCredential></LogInCredential>
       </div>
     </div>
   );

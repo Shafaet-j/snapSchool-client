@@ -2,8 +2,9 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useAuth from "../../../../hooks/useAuth";
+import { toast } from "react-hot-toast";
 
-const CheckoutForm = ({ price }) => {
+const CheckoutForm = ({ price, course }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCardError] = useState("");
@@ -33,7 +34,6 @@ const CheckoutForm = ({ price }) => {
       card,
     });
     if (error) {
-     
       setCardError(error.message);
     } else {
       console.log("[PaymentMethod]", paymentMethod);
@@ -57,24 +57,38 @@ const CheckoutForm = ({ price }) => {
 
     if (paymentIntent.status === "succeeded") {
       setTransactionId(paymentIntent.id);
+      // fetch(
+      //   `https://snapschool-server-shafaet-j.vercel.app/`,
+      //   {
+      //     method: "PUT",
+      //     headers: { "content-type": "application/json" },
+      //     body: JSON.stringify(data),
+      //   }
+      // )
+      //   .then((res) => res.json())
+      //   .then((result) => {
+      //     if (result.modifiedCount > 0) {
+      //       closeModal();
+      //       toast.success("Successfully Updated.");
+      //     }
+      //   });
+
+      // course.totalEnrolled++; 
 
       // save payment info
       const payment = {
         email: user?.email,
         transactionId: paymentIntent.id,
         price,
-        status: 'succesfull'
+        courseName: course.name,
+        status: "succesfull",
       };
 
-
-
-      axiosSecure.post('/payments',{payment})
-      .then(res=>{
-       
-        if(res.data.insertedId){
-          alert('saved')
+      axiosSecure.post("/payments", { payment }).then((res) => {
+        if (res.data.insertedId) {
+          toast.success("Payment succesfull");
         }
-      })
+      });
     }
   };
 

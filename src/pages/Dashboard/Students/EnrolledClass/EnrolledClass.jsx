@@ -8,6 +8,7 @@ import useAuth from "../../../../hooks/useAuth";
 const EnrolledClass = () => {
   const { user } = useAuth();
   const [selectedPrice, setSelectedPrice] = useState(null);
+  const [selectedCourse,setSelectedCourse] = useState(null)
   const [isOpen, setIsOpen] = useState(false);
   const closeModal = () => {
     setIsOpen(false);
@@ -71,7 +72,7 @@ const EnrolledClass = () => {
           <tbody>
             {enrollItems.map((item, index) => (
               <>
-                <tr key={item._id}>
+                <tr key={index}>
                   <th>{index + 1}</th>
                   <td>{item.instructor_name}</td>
                   <td>{item.instructor_email}</td>
@@ -88,6 +89,8 @@ const EnrolledClass = () => {
                   <td>
                     <button
                       onClick={() => {
+                        
+                        setSelectedCourse(item)
                         setSelectedPrice(item.price);
                         setIsOpen(true);
                       }}
@@ -104,6 +107,7 @@ const EnrolledClass = () => {
       </div>
       <Modal
         price={selectedPrice}
+        course={selectedCourse}
         closeModal={closeModal}
         isOpen={isOpen}
       ></Modal>

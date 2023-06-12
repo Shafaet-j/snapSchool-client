@@ -5,7 +5,6 @@ import { PuffLoader } from "react-spinners";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
-  console.log(user)
   const location = useLocation();
   if (loading) {
     return (

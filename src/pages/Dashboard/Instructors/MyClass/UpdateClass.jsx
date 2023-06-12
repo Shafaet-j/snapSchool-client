@@ -3,8 +3,7 @@ import { Fragment, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 
-const UpdateClass = ({ modalHandler, isOpen, selectedClass, closeModal }) => {
- 
+const UpdateClass = ({ isOpen, selectedClass, closeModal }) => {
   // console.log(selectedClass.name);
   const {
     register,
@@ -24,7 +23,7 @@ const UpdateClass = ({ modalHandler, isOpen, selectedClass, closeModal }) => {
       .then((res) => res.json())
       .then((result) => {
         if (result.modifiedCount > 0) {
-          closeModal()
+          closeModal();
           toast.success("Successfully Updated.");
         }
       });
