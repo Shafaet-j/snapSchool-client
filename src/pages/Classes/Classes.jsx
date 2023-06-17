@@ -29,7 +29,7 @@ const Classes = () => {
       <Helmet>
         <title>SnapSchool | Classes</title>
       </Helmet>
-      <h2 className=" lg:text-5xl text-3xl font-bold">
+      <h2 className=" lg:text-5xl text-3xl font-bold dark:text-gray-300">
         All <span className=" text-primary">Photography</span> Classes
       </h2>
 

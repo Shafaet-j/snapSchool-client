@@ -71,8 +71,8 @@ const SingleClass = ({ data }) => {
     <div
       className={` ${
         data.available_seat > 1
-          ? "card   bg-base-100 shadow-xl p-0 pb-7 rounded-xl"
-          : "border-2 border-red-500 rounded-xl"
+          ? "card   bg-base-100 shadow-xl p-0 pb-7 rounded-xl dark:bg-slate-800 dark:text-slate-300"
+          : "border-2 border-red-500 rounded-xl dark:text-slate-300"
       }`}
     >
       <figure>
@@ -115,7 +115,7 @@ const SingleClass = ({ data }) => {
         <button
           disabled={enrollButtonText === "Enrolled" || data.available_seat == 0 || isAdmin || isInstructor}
           onClick={() => handleEnrolled(data)}
-          className=" btn"
+          className=" btn btn-primary"
         >
           {enrollButtonText}
         </button>

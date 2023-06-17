@@ -5,9 +5,9 @@ import Footer from "../pages/Shared/Footer/Footer";
 
 const Main = () => {
   return (
-    <div>
+    <div className=" dark:bg-slate-950">
       <Navbar></Navbar>
-      <div className="min-h-[calc(100vh-220px)]">
+      <div className="min-h-[calc(100vh-220px)] dark:bg-slate-950">
         <Outlet></Outlet>
       </div>
       <Footer></Footer>
