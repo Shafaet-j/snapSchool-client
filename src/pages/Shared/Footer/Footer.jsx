@@ -3,8 +3,8 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <div className="bg-base-200 dark:bg-slate-950 dark:text-slate-300">
-        <footer className="footer bg-base-200 py-10 text-base-content px-4 container mx-auto lg:grid-cols-4 grid-cols-2 dark:bg-slate-950 dark:text-slate-300">
+      <div className="bg-base-200 dark:bg-slate-950">
+        <footer className="footer bg-base-200 py-24 px-4 container mx-auto lg:grid-cols-4 grid-cols-2 dark:bg-slate-950 dark:text-white">
           <div className=" text-left">
             <h2 className=" text-primary font-bold text-3xl">SnapScholl</h2>
             <p>
@@ -14,24 +14,50 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <span className="footer-title">Services</span>
-            <a className="link link-hover">Wildlife photograpgy</a>
-            <a className="link link-hover">Street photograpgy</a>
-            <a className="link link-hover">Night photograpgy</a>
-            <a className="link link-hover">Portrait photograpgy</a>
+            <span className=" text-2xl font-bold text-accent dark:text-slate-300">
+              Services
+            </span>
+            <a className="link link-hover font-medium mb-5 text-base">
+              Wildlife photograpgy
+            </a>
+            <a className="link link-hover font-medium mb-5 text-base">
+              Street photograpgy
+            </a>
+            <a className="link link-hover font-medium mb-5 text-base">
+              Night photograpgy
+            </a>
+            <a className="link link-hover font-medium mb-5 text-base">
+              Portrait photograpgy
+            </a>
           </div>
           <div>
-            <span className="footer-title">Company</span>
-            <a className="link link-hover">About us</a>
-            <a className="link link-hover">Contact</a>
-            <a className="link link-hover">Jobs</a>
-            <a className="link link-hover">Press kit</a>
+            <span className="text-2xl font-bold text-accent dark:text-slate-300">
+              Company
+            </span>
+            <a className="link link-hover mb-5 font-medium text-base">
+              About us
+            </a>
+            <a className="link link-hover mb-5 font-medium text-base">
+              Contact
+            </a>
+            <a className="link link-hover mb-5 font-medium text-base">Jobs</a>
+            <a className="link link-hover mb-5 font-medium text-base">
+              Press kit
+            </a>
           </div>
           <div>
-            <span className="footer-title">Legal</span>
-            <a className="link link-hover">Terms of use</a>
-            <a className="link link-hover">Privacy policy</a>
-            <a className="link link-hover">Cookie policy</a>
+            <span className=" text-2xl font-bold text-accent dark:text-slate-300">
+              Legal
+            </span>
+            <a className="link link-hover mb-5 font-medium text-base">
+              Terms of use
+            </a>
+            <a className="link link-hover mb-5 font-medium text-base">
+              Privacy policy
+            </a>
+            <a className="link link-hover mb-5 font-medium text-base">
+              Cookie policy
+            </a>
           </div>
         </footer>
       </div>

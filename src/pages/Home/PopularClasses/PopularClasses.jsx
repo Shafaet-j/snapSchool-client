@@ -15,7 +15,6 @@ const PopularClasses = () => {
     );
     return res.json();
   });
-  
 
   if (isLoading) {
     return (
@@ -25,15 +24,13 @@ const PopularClasses = () => {
     );
   }
 
-  
-
   return (
     <div className=" container mx-auto mb-10 px-5">
-      <h1 className=" lg:text-5xl text-3xl font-bold mb-10 dark:text-slate-300">
-        Our <span className=" text-primary">Featured</span> Classes
+      <h1 className=" lg:text-5xl text-3xl font-bold mb-16 dark:text-slate-300">
+        Our <span className=" text-primary">Popular</span> Courses
       </h1>
       <div className=" grid grid-cols-1 lg:grid-cols-3 gap-7">
-        {popularClasses?.map((popularClass) => (
+        {popularClasses.slice(0, 6)?.map((popularClass) => (
           <ClassCard
             key={popularClass._id}
             popularClass={popularClass}

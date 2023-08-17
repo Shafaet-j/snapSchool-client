@@ -6,8 +6,8 @@ import useInstructor from "../../hooks/useInstructor";
 
 const SingleClass = ({ data }) => {
   const { user } = useAuth();
-  const [isAdmin] = useAdmin()
-  const [isInstructor] = useInstructor()
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   const [enrollButtonText, setEnrollButtonText] = useState("Enroll");
   const handleEnrolled = (data) => {
     const {
@@ -110,12 +110,17 @@ const SingleClass = ({ data }) => {
         </p>
         <p className=" font-semibold text-base">Name: {data.instructor_name}</p>
         <p className=" font-bold text-2xl">
-          Price: <span className=" text-primary">${data.price}</span>
+          Price: <span className=" text-primary">${data.price}.00</span>
         </p>
         <button
-          disabled={enrollButtonText === "Enrolled" || data.available_seat == 0 || isAdmin || isInstructor}
+          disabled={
+            enrollButtonText === "Enrolled" ||
+            data.available_seat == 0 ||
+            isAdmin ||
+            isInstructor
+          }
           onClick={() => handleEnrolled(data)}
-          className=" btn btn-primary"
+          className=" btn btn-primary rounded text-white"
         >
           {enrollButtonText}
         </button>

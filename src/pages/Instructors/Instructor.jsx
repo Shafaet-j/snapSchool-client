@@ -12,8 +12,8 @@ const Instructor = ({ instructor }) => {
         <h2 className="card-title">{name}</h2>
         <p className=" text-lg font-semibold"> Email: {email}</p>
         <div className="">
-          <Link to='/classes'>
-            <button className="btn capitalize font-semibold text-lg btn-primary">
+          <Link to="/classes">
+            <button className="btn capitalize font-semibold text-lg btn-primary text-white">
               See Classes
             </button>
           </Link>

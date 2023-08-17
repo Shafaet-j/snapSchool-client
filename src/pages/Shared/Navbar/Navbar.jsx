@@ -13,17 +13,17 @@ const Navbar = () => {
   const [isInstructor] = useInstructor();
   const navOptions = (
     <>
-      <li>
-        <Link to="/">Home</Link>
+      <li className=" hover:text-primary">
+        <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <Link to="/instructors">Instructors</Link>
+      <li className=" hover:text-primary">
+        <NavLink to="/instructors">Instructors</NavLink>
       </li>
-      <li>
-        <Link to="/classes"> Classes</Link>
+      <li className=" hover:text-primary">
+        <NavLink to="/classes"> Courses</NavLink>
       </li>
       {user && (
-        <li>
+        <li className=" hover:text-primary">
           <Link
             to={
               isAdmin
@@ -80,12 +80,14 @@ const Navbar = () => {
                 {navOptions}
               </ul>
             </div>
-            <a className="text-xl lg:text-3xl font-bold text-primary">
+            <Link to="/" className="text-xl lg:text-3xl font-bold text-primary">
               SnapSchool
-            </a>
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 text-lg">{navOptions}</ul>
+            <ul className="flex items-center justify-between gap-8 px-2 text-base font-semibold ">
+              {navOptions}
+            </ul>
           </div>
           <div className=" navbar-end">
             <ul className=" flex items-center flex-row-reverse gap-4">
@@ -108,9 +110,9 @@ const Navbar = () => {
                     />
                   </>
                 ) : (
-                  <li className="">
-                    <NavLink to="/login">LogIn</NavLink>
-                  </li>
+                  <button className="px-6 py-3 rounded-md btn btn-primary font-bold text-white">
+                    <Link to="/login">Login / Register</Link>
+                  </button>
                 )}
               </div>
               <Switch

@@ -7,6 +7,7 @@ import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import WhatOurStudentSay from "../WhatOurStudentSay/WhatOurStudentSay";
 import Offer from "../Offer/Offer";
 import { Helmet } from "react-helmet-async";
+import AboutUs from "../AboutUs/AboutUs";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         <title>SnapSchool | Home</title>
       </Helmet>
       <Banner></Banner>
+      <AboutUs></AboutUs>
       <PopularClasses></PopularClasses>
       <Offer></Offer>
       <PopularInstructors></PopularInstructors>

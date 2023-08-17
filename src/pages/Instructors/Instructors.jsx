@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Instructor from "./Instructor";
-import ins from "../../assets/instructor.jpg";
+import ins from "../../assets/bg8.png";
 import { FaArrowRight } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import { PuffLoader } from "react-spinners";
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const Instructors = () => {
   const {
@@ -50,11 +51,11 @@ const Instructors = () => {
         }}
       >
         <div className=" text-left ml-8 lg:ml-[210px]">
-          <h2 className=" lg:text-5xl text-3xl font-bold text-white mb-3">
+          <h2 className=" lg:text-5xl text-3xl font-bold text-accent mb-3">
             Our Instructors
           </h2>
-          <p className=" text-white font-bold flex items-center gap-3">
-            Home
+          <p className=" text-accent font-bold flex items-center gap-3">
+            <Link to="/">Home</Link>
             <span>
               <FaArrowRight />
             </span>
@@ -62,8 +63,13 @@ const Instructors = () => {
           </p>
         </div>
       </section>
-      <section className=" container mx-auto">
-        {/* <h1 className=" lg:text-5xl font-bold">Our Instructors</h1> */}
+      <section className=" container mx-auto py-20">
+        <p className=" text-primary font-extrabold text-base mb-5">
+          SKILLED INSTRUCTOR
+        </p>
+        <h1 className=" lg:text-4xl font-extrabold tex-accent dark:text-slate-300">
+          Introduce Our Instructors
+        </h1>
         <div className=" grid grid-cols-1 lg:grid-cols-3">
           {instructors.map((instructor) => (
             <Instructor

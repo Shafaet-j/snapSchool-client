@@ -1,9 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;800;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-#root{
+#root {
   margin: 0;
   padding: 0;
   max-width: 100%;
+  font-family: "Urbanist", sans-serif;
+}
+
+.active {
+  @apply text-primary font-bold;
+}
+
+.image-container {
+  position: relative;
+  width: 300px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-container .image-2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.image-container .image-3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
