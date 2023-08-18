@@ -17,7 +17,7 @@ const ManageClasses = () => {
   });
 
   const handleApproved = (id, status) => {
-    console.log("clicked", id, status);
+    // console.log("clicked", id, status);
 
     axiosSecure
       .put(`/class/status/${id}`, { status: "approved" })
@@ -33,7 +33,7 @@ const ManageClasses = () => {
   };
 
   const handleReject = (id, status) => {
-    console.log("clicked", id, status);
+    // console.log("clicked", id, status);
 
     axiosSecure
       .put(`/class/status/${id}`, { status: "rejected" })
@@ -74,7 +74,7 @@ const ManageClasses = () => {
           <tbody>
             {classes.map((singleClass) => (
               <Row
-              handleReject={handleReject}
+                handleReject={handleReject}
                 handleApproved={handleApproved}
                 singleClass={singleClass}
                 key={singleClass._id}

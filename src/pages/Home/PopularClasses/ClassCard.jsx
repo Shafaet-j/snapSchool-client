@@ -3,8 +3,6 @@ import { Slide } from "react-awesome-reveal";
 import { FaChair } from "react-icons/fa";
 
 const ClassCard = ({ popularClass }) => {
-  console.log(popularClass);
-
   const { name, image, price, available_seat, instructor_name } = popularClass;
   return (
     <Slide direction="up" triggerOnce>
