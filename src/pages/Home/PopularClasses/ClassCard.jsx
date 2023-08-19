@@ -35,7 +35,7 @@ const ClassCard = ({ popularClass }) => {
               type="radio"
               name="rating-2"
               className="mask mask-star-2 bg-orange-400"
-              checked
+              defaultChecked
             />
             <input
               type="radio"
@@ -53,7 +53,7 @@ const ClassCard = ({ popularClass }) => {
               className="mask mask-star-2 bg-orange-400"
             />
           </div>
-          <hr class="border-t-2 border-gray-200"></hr>
+          <hr className="border-t-2 border-gray-200"></hr>
           <p className=" font-bold text-2xl">
             <span className=" text-primary">${price}.00</span>
           </p>

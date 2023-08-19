@@ -3,13 +3,22 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SingleClass = ({ data }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const { user } = useAuth();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   const [enrollButtonText, setEnrollButtonText] = useState("Enroll");
   const handleEnrolled = (data) => {
+    // if (!user) {
+    //   navigate("/login", { state: { from: location } });
+    //   return;
+    // }
+
     const {
       image,
       available_seat,
@@ -28,7 +37,7 @@ const SingleClass = ({ data }) => {
       price,
       _id,
       name,
-      email: user.email,
+      email: user?.email,
     };
     if (user && user.email) {
       fetch("https://snapschool-server-shafaet-j.vercel.app/enroll", {
@@ -60,6 +69,7 @@ const SingleClass = ({ data }) => {
         cancelButtonColor: "#d33",
         confirmButtonText: "Login now!",
       }).then((result) => {
+        console.log(result);
         if (result.isConfirmed) {
           navigate("/login", { state: { from: location } });
         }

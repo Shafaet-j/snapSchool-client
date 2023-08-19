@@ -1,7 +1,7 @@
 # **SnapSchool**
 
 <a  href="https://snapschool.netlify.app/">
-<img  width="100%"  height="100%"  src="https://i.ibb.co/mcf4gPs/snap.png"/>
+<img  width="100%"  height="100%"  src="https://i.ibb.co/g7wvqSm/snap.png"/>
 </a>
 
 ## About & Features
