@@ -1,12 +1,17 @@
 import React from "react";
-import { Slide } from "react-awesome-reveal";
 import { FaChair } from "react-icons/fa";
-
-const ClassCard = ({ popularClass }) => {
+import { motion } from "framer-motion";
+const ClassCard = ({ popularClass, index }) => {
   const { name, image, price, available_seat, instructor_name } = popularClass;
+
   return (
-    <Slide direction="up" triggerOnce>
-      <div className="card   bg-base-100 shadow-xl p-0 pb-7 dark:bg-slate-800 dark:text-slate-300 rounded-md">
+    <div className=" overflow-hidden">
+      <motion.div
+        initial={{ y: "-50%" }}
+        whileInView={{ y: 0 }}
+        transition={{ ease: "easeInOut", duration: 1, delay: index / 10 }}
+        className="card   bg-base-100 shadow-xl p-0 pb-7 dark:bg-slate-800 dark:text-slate-300 rounded-md"
+      >
         <figure>
           <img
             className=" h-80 object-cover w-full hover:scale-110 duration-300"
@@ -58,8 +63,8 @@ const ClassCard = ({ popularClass }) => {
             <span className=" text-primary">${price}.00</span>
           </p>
         </div>
-      </div>
-    </Slide>
+      </motion.div>
+    </div>
   );
 };
 

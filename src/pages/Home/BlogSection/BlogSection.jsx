@@ -9,16 +9,19 @@ const BlogSection = () => {
       </h1>
       <div className=" grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-7">
         <Blog
+          index="1"
           image="https://cdn.pixabay.com/photo/2016/03/05/22/53/camera-1239384_1280.jpg"
           title="Learn Photography from Experts"
           subtitle="Mirrorless mounts have allowed the creation of increasingly lens designs, and as such, we have seen more and more rectilinear full frame lenses that push to wider and wider focal lengths, including single-digit focal lengths"
         />
         <Blog
+          index="2"
           image="https://cdn.pixabay.com/photo/2016/11/29/02/59/drone-1866961_1280.jpg"
           title="Learn Photography from Experts"
           subtitle="Mirrorless mounts have allowed the creation of increasingly lens designs, and as such, we have seen more and more rectilinear full frame lenses that push to wider and wider focal lengths, including single-digit focal lengths"
         />
         <Blog
+          index="3"
           image="https://cdn.pixabay.com/photo/2014/05/22/22/05/photo-351528_1280.jpg"
           title="Learn Photography from Experts"
           subtitle="Mirrorless mounts have allowed the creation of increasingly lens designs, and as such, we have seen more and more rectilinear full frame lenses that push to wider and wider focal lengths, including single-digit focal lengths"

@@ -10,8 +10,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "./Banner.css";
 import "swiper/css/pagination";
-import { Fade } from "react-awesome-reveal";
+
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
@@ -28,24 +29,53 @@ const Banner = () => {
 
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  w-full px-5">
               <div className=" grid grid-cols-1 lg:grid-cols-2 max-w-6xl mx-auto lg:gap-20 gap-5 justify-items-center">
-                <Fade duration={3000}>
-                  <div className="text-left lg:space-y-6 space-y-3">
-                    <p className=" text-base font-extrabold text-primary mt-5">
+                <div className="text-left lg:space-y-6 space-y-3">
+                  <div className=" overflow-hidden">
+                    <motion.p
+                      initial={{ y: "100%" }}
+                      whileInView={{ y: 0 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className=" text-base font-extrabold text-primary mt-5"
+                    >
                       BETTER LEARNING FUTURE WITH US
-                    </p>
-                    <h1 className="text-accent font-extrabold lg:text-7xl text-4xl text-left">
+                    </motion.p>
+                  </div>
+                  <div className=" overflow-hidden">
+                    <motion.h1
+                      initial={{ y: "100%" }}
+                      whileInView={{ y: 0 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className="text-accent font-extrabold lg:text-7xl text-4xl text-left"
+                    >
                       Exploring The World In
                       <span className=" text-primary"> Frames</span>
-                    </h1>
-                    <h3 className=" lg:text-xl font-medium mt-7 text-[#6f6b80]">
+                    </motion.h1>
+                  </div>
+                  <div className=" overflow-hidden">
+                    <motion.h3
+                      initial={{ y: "100%" }}
+                      whileInView={{ y: 0 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className=" lg:text-xl font-medium mt-7 text-[#6f6b80]"
+                    >
                       Empower yourself with the knowledge and skills gained
                       through online education! The key to your future!
-                    </h3>
-                    <button className="px-6 py-3 rounded-md btn btn-primary font-bold text-white">
-                      <Link to="/signup">Get Started today</Link>
-                    </button>
+                    </motion.h3>
                   </div>
-                </Fade>
+                  <div className=" overflow-hidden">
+                    <motion.div
+                      initial={{ x: "-50%" }}
+                      whileInView={{ x: 0 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className=""
+                    >
+                      <button className="px-6 py-3 rounded-md btn btn-primary font-bold text-white">
+                        <Link to="/signup">Get Started today</Link>
+                      </button>
+                    </motion.div>
+                  </div>
+                </div>
+
                 <div className=" relative">
                   <img className="  mr-0 w-80 lg:w-full" src={bg5} alt="" />
                   <img
@@ -68,7 +98,15 @@ const Banner = () => {
             <img className="h-[95vh] w-full object-cover" src={bg2} alt="" />
             <div className="absolute inset-0 overlay"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl lg:text-7xl w-full font-bold">
-              Capturing Moments, Creating Memories
+              <div className=" overflow-hidden">
+                <motion.h1
+                  initial={{ y: "100%" }}
+                  whileInView={{ y: 0 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
+                  Capturing Moments, Creating Memories
+                </motion.h1>
+              </div>
             </div>
           </div>
         </SwiperSlide>

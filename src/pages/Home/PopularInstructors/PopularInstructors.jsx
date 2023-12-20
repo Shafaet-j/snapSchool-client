@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import InstructorCard from "./InstructorCard";
 import { useQuery } from "@tanstack/react-query";
 import { PuffLoader } from "react-spinners";
+import { motion } from "framer-motion";
 
 const PopularInstructors = () => {
   // const [popularInstructors, setPopularInstructors] = useState([]);
@@ -32,14 +33,22 @@ const PopularInstructors = () => {
   // }, []);
   return (
     <section className=" container mx-auto pb-10">
-      <h1 className=" lg:text-5xl text-3xl font-bold mb-10 dark:text-slate-300">
-        Our Popular <span className=" text-primary">Instructors</span>{" "}
-      </h1>
+      <div className=" overflow-hidden mb-10">
+        <motion.h1
+          initial={{ y: "100%" }}
+          whileInView={{ y: 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className=" lg:text-5xl text-3xl font-bold  dark:text-slate-300"
+        >
+          Our Popular <span className=" text-primary">Instructors</span>{" "}
+        </motion.h1>
+      </div>
       <div className=" grid grid-cols-1 lg:grid-cols-3 justify-items-center gap-7">
-        {popularInstructors.map((popularInstructor) => (
+        {popularInstructors.map((popularInstructor, index) => (
           <InstructorCard
             popularInstructor={popularInstructor}
             key={popularInstructor._id}
+            index={index}
           ></InstructorCard>
         ))}
       </div>
